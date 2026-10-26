@@ -1,0 +1,15 @@
+name: SdPlayments
+version: 0.1.0-SNAPSHOT
+main: ru.sdonate.sdplayments.SdPlaymentsPlugin
+api-version: '1.16'
+authors: [SDonate]
+description: Server-side payment integration foundation for SDonate.
+commands:
+  sdplayments:
+    description: SdPlayments administration and connection status.
+    usage: /sdplayments <status|reload|test>
+    permission: sdplayments.admin
+permissions:
+  sdplayments.admin:
+    description: Allows administration of SdPlayments.
+    default: op

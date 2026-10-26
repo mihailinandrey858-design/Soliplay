@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090a0d">
+    <meta name="description" content="Демонстрационная панель управления SDonate.">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <title>Админ-панель — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html">
+                <img class="nav-icon" src="./img/house.png" alt="">
+                Главная
+            </a>
+            <a class="nav-link" href="./finance.html">
+                <img class="nav-icon" src="./img/hand-coins.png" alt="">
+                Финансы
+            </a>
+            <a class="nav-link" href="./shops.html">
+                <img class="nav-icon" src="./img/shopping-basket.png" alt="">
+                Магазины
+            </a>
+            <a class="nav-link active" href="./admin.html" aria-current="page">
+                <span>⌘</span>
+                Админ-панель
+            </a>
+        </nav>
+        <div class="top-actions">
+            <a
+                class="help-link"
+                href="https://t.me/Sdonat1"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img class="nav-icon" src="./img/message-square-more.png" alt="">
+                Помощь
+            </a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name">
+                    <b id="account-name">Администратор</b>
+                    <small>Администратор</small>
+                </span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content admin-content">
+        <div class="demo-banner admin-warning">
+            <span class="demo-mark">!</span>
+            <span>
+                <b>Серверная сессия администратора активна.</b>
+                Список аккаунтов загружается с сервера. Реальные платежи пока не подключены.
+            </span>
+        </div>
+
+        <div class="page-heading admin-heading">
+            <div>
+                <p class="eyebrow">SDONATE / УПРАВЛЕНИЕ</p>
+                <h1>Админ-панель</h1>
+                <p class="welcome">
+                    Обзор аккаунтов сервиса ·
+                    <span id="admin-account-label">загрузка…</span>
+                </p>
+            </div>
+            <a class="admin-back-link" href="./dashboard.html">
+                <img src="./img/arrow-left.svg" alt="" aria-hidden="true">
+                В личный кабинет
+            </a>
+        </div>
+
+        <section class="admin-stats" aria-label="Сводная статистика">
+            <article class="admin-stat-card">
+                <span class="admin-stat-icon">♙</span>
+                <div>
+                    <p>Аккаунты сервиса</p>
+                    <strong id="account-total">0</strong>
+                    <small id="accounts-caption">загрузка данных сервера</small>
+                </div>
+            </article>
+            <article class="admin-stat-card">
+                <span class="admin-stat-icon">♧</span>
+                <div>
+                    <p>Магазины</p>
+                    <strong id="shop-total">—</strong>
+                    <small>учёт магазинов подключается отдельно</small>
+                </div>
+            </article>
+            <article class="admin-stat-card">
+                <span class="admin-stat-icon">
+                    <img src="./img/badge-russian-ruble.svg" alt="" aria-hidden="true">
+                </span>
+                <div>
+                    <p>Оборот</p>
+                    <strong id="turnover-value">0 ₽</strong>
+                    <small>платёжные данные</small>
+                </div>
+            </article>
+            <article class="admin-stat-card">
+                <span class="admin-stat-icon">↗</span>
+                <div>
+                    <p>Доход SDonate</p>
+                    <strong id="revenue-value">0 ₽</strong>
+                    <small>комиссия сервиса</small>
+                </div>
+            </article>
+        </section>
+
+        <section class="admin-panel accounts-panel" aria-labelledby="accounts-title">
+            <div class="admin-panel-heading">
+                <div>
+                    <p class="eyebrow">ПОЛЬЗОВАТЕЛИ</p>
+                    <h2 id="accounts-title">Аккаунты</h2>
+                    <p>
+                        Почты и даты регистрации пользователей в базе сервера.
+                        Обычные аккаунты можно блокировать или удалить.
+                    </p>
+                </div>
+                <label class="account-search">
+                    <span aria-hidden="true">⌕</span>
+                    <input
+                        id="account-search"
+                        type="search"
+                        placeholder="Поиск по нику или почте"
+                        aria-label="Поиск по аккаунтам"
+                    >
+                </label>
+            </div>
+            <div class="admin-table-wrap">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Аккаунт</th>
+                            <th>Почта</th>
+                            <th>Регистрация</th>
+                            <th>Роль</th>
+                            <th>Статус</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accounts-table-body">
+                    </tbody>
+                </table>
+                <p class="admin-empty" id="accounts-empty" hidden>
+                    Аккаунты не найдены.
+                </p>
+            </div>
+        </section>
+
+        <section class="admin-panel verification-admin-panel" aria-labelledby="verification-admin-title">
+            <div class="admin-panel-heading">
+                <div>
+                    <p class="eyebrow">ПРОВЕРКА АККАУНТОВ</p>
+                    <h2 id="verification-admin-title">Заявки на верификацию</h2>
+                    <p id="verification-admin-caption">
+                        Личные данные доступны только в этой панели администратора.
+                    </p>
+                </div>
+                <button
+                    class="account-action-button"
+                    id="refresh-verifications"
+                    type="button"
+                >
+                    Обновить
+                </button>
+            </div>
+            <p
+                class="admin-data-error"
+                id="verification-admin-message"
+                role="status"
+                hidden
+            ></p>
+            <div
+                class="verification-admin-list"
+                id="verification-admin-list"
+            ></div>
+            <p class="admin-empty" id="verification-admin-empty" hidden>
+                Заявок пока нет.
+            </p>
+        </section>
+
+        <p
+            class="admin-data-error"
+            id="admin-status-message"
+            role="status"
+            hidden
+        ></p>
+
+        <section class="admin-panel income-panel" aria-labelledby="income-title">
+            <div class="admin-panel-heading">
+                <div>
+                    <p class="eyebrow">ФИНАНСЫ СЕРВИСА</p>
+                    <h2 id="income-title">Доход и операции</h2>
+                    <p>
+                        Платёжные операции и начисление комиссии пока не подключены.
+                    </p>
+                </div>
+                <span class="admin-demo-badge">ДЕМО</span>
+            </div>
+            <div class="income-empty">
+                <span aria-hidden="true">
+                    <img
+                        src="./img/badge-russian-ruble.svg"
+                        alt=""
+                        aria-hidden="true"
+                    >
+                </span>
+                <div>
+                    <b>Платёжных операций пока нет</b>
+                    <p id="income-caption">Платёжная интеграция не подключена.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <dialog
+        class="admin-confirm-dialog"
+        id="account-delete-dialog"
+        aria-labelledby="account-delete-title"
+    >
+        <form method="dialog">
+            <p class="eyebrow">УПРАВЛЕНИЕ АККАУНТОМ</p>
+            <h2 id="account-delete-title">Удалить аккаунт?</h2>
+            <p id="account-delete-description">
+                Это действие удалит аккаунт и не может быть отменено.
+            </p>
+            <div class="admin-dialog-actions">
+                <button class="account-action-button" value="cancel">
+                    Отмена
+                </button>
+                <button
+                    class="account-action-button danger-action"
+                    id="confirm-account-delete"
+                    value="confirm"
+                >
+                    Удалить аккаунт
+                </button>
+            </div>
+        </form>
+    </dialog>
+    <script src="./auth-session.js"></script>
+    <script src="./admin.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

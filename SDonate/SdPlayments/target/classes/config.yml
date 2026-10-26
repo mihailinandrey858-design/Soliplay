@@ -1,0 +1,10 @@
+test-mode: true
+
+api:
+  # Set this to the HTTPS API address after the SDonate backend is implemented.
+  base-url: ""
+  # Keep this server-side. Never put a real API secret in the website's HTML or JavaScript.
+  token: ""
+
+polling:
+  interval-seconds: 10

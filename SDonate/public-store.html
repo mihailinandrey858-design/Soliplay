@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090b12">
+    <meta name="description" content="Витрина магазина игрового сервера.">
+    <title>Магазин сервера</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/public-store.css">
+</head>
+<body>
+    <div class="store-demo-note"><span aria-hidden="true">i</span><p><b>Предпросмотр витрины</b> — магазин пока работает в браузере. Домен, оплата и выдача покупок ещё не подключены.</p></div>
+    <header class="store-header">
+        <a class="store-brand" id="store-brand" href="./public-store.html">
+            <span class="store-brand-mark" id="store-brand-mark">S</span>
+            <span id="store-brand-name">Магазин сервера</span>
+        </a>
+        <nav class="store-nav" aria-label="Навигация магазина">
+            <a href="#products">Товары</a>
+            <a href="#about">О сервере</a>
+        </nav>
+        <button class="cart-open-button" id="cart-open" type="button" aria-label="Открыть корзину">
+            <span aria-hidden="true">▣</span> Корзина <b id="cart-count">0</b>
+        </button>
+    </header>
+
+    <main class="public-store-content">
+        <section class="store-hero" id="store-hero">
+            <img class="store-hero-image" id="store-hero-image" alt="" hidden>
+            <div class="store-hero-content">
+                <span class="store-hero-kicker"><i></i> МАГАЗИН СЕРВЕРА</span>
+                <h1 id="store-title">Добро пожаловать!</h1>
+                <p id="store-description">Выбирай привилегии и предметы для игры.</p>
+                <div class="store-hero-meta">
+                    <span><i class="meta-icon">⌁</i><b id="server-address">Сервер скоро появится</b></span>
+                    <span id="online-indicator"><i class="online-dot"></i> Играй вместе с нами</span>
+                </div>
+                <a class="hero-shop-link" href="#products">Выбрать товар <span aria-hidden="true">↓</span></a>
+            </div>
+            <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div>
+            <div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+            <div class="hero-crystal" aria-hidden="true"><span>✦</span></div>
+        </section>
+
+        <section class="public-servers" id="public-servers" aria-labelledby="public-servers-title" hidden>
+            <div class="public-servers-heading">
+                <div><p class="section-kicker">ПОДКЛЮЧАЙСЯ К ИГРЕ</p><h2 id="public-servers-title">Наши серверы</h2></div>
+                <p>Статус обновляется автоматически. IP проверяется через внешний сервис статуса Minecraft.</p>
+            </div>
+            <div class="public-servers-grid" id="public-servers-grid"></div>
+        </section>
+
+        <section class="store-main-grid" id="products">
+            <div class="products-section">
+                <div class="section-heading">
+                    <div><p class="section-kicker">ПОДДЕРЖИ СЕРВЕР</p><h2>Товары магазина</h2></div>
+                    <label class="product-search"><span aria-hidden="true">⌕</span><input id="product-search" type="search" placeholder="Найти товар" aria-label="Найти товар"></label>
+                </div>
+                <div class="category-list" id="category-list" aria-label="Категории товаров"></div>
+                <div class="public-products-grid" id="public-products-grid"></div>
+                <div class="store-empty-state" id="store-empty-state" hidden>
+                    <span aria-hidden="true">◇</span>
+                    <h3>Здесь пока тихо</h3>
+                    <p>Владелец магазина ещё не добавил товары.</p>
+                </div>
+            </div>
+
+            <aside class="cart-panel" id="cart-panel">
+                <div class="cart-heading"><div><p class="section-kicker">ТВОЙ ВЫБОР</p><h2>Корзина</h2></div><span id="cart-heading-count">0</span></div>
+                <div class="cart-items" id="cart-items"></div>
+                <p class="cart-empty" id="cart-empty">Добавь товар — он появится здесь.</p>
+                <div class="cart-total"><span>Итого</span><b id="cart-total">0 ₽</b></div>
+                <button class="checkout-button" id="checkout-button" type="button" disabled>Перейти к оплате</button>
+                <p class="cart-demo-hint">Оплата и выдача пока не подключены. В демо деньги не списываются.</p>
+            </aside>
+        </section>
+
+        <section class="about-server" id="about">
+            <div><p class="section-kicker">ИГРАЙ ВМЕСТЕ С НАМИ</p><h2 id="about-title">Твой следующий мир ждёт</h2><p id="about-description">Выбери товар и поддержи развитие сервера.</p></div>
+            <a id="community-link" href="#products" hidden>Наше сообщество <span aria-hidden="true">↗</span></a>
+        </section>
+        <figure class="additional-store-image" id="additional-store-image" hidden>
+            <img id="additional-store-image-content" alt="">
+            <figcaption>Ещё немного о нашем сервере</figcaption>
+        </figure>
+    </main>
+
+    <dialog class="checkout-dialog" id="checkout-dialog">
+        <button class="dialog-close" id="checkout-close" type="button" aria-label="Закрыть">×</button>
+        <span class="checkout-icon" aria-hidden="true">◇</span>
+        <p class="section-kicker">ЗАКАЗ</p>
+        <h2>Скоро здесь будет оплата</h2>
+        <p>Корзина готова, но платёжный сервис и автоматическая выдача ещё не подключены. Сейчас заказ не создаётся и деньги не списываются.</p>
+        <button class="checkout-dialog-close" id="checkout-ok" type="button">Понятно</button>
+    </dialog>
+    <div class="public-store-toast" id="public-store-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./demo-image-storage.js"></script>
+    <script src="./public-store.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

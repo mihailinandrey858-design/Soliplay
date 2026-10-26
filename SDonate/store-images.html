@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Настройки изображений демо-магазина SDonate.">
+    <title>Картинки магазина — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/store-images.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html" aria-current="page"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content store-images-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Демо-настройки картинок</b> — изображения сохраняются только в этой вкладке и не загружаются на сервер.</span><a id="back-to-settings" href="./shops.html">← Назад</a></div>
+
+        <section class="images-panel">
+            <div class="images-heading">
+                <a id="images-back-button" class="images-back-button" href="./shops.html" aria-label="Назад">←</a>
+                <div>
+                    <h1>Настройка картинок</h1>
+                    <p>Управляйте иконкой магазина, логотипом, фоновым изображением и дополнительной картинкой.</p>
+                </div>
+            </div>
+
+            <form id="images-form">
+                <section class="image-setting-row" data-image-key="icon">
+                    <div class="image-setting-copy">
+                        <h2>Иконка магазина</h2>
+                        <p>Отображается на соответствующей вкладке браузера.</p>
+                        <span>Рекомендуем 256×256, PNG</span>
+                    </div>
+                    <div class="image-setting-controls">
+                        <div class="image-preview icon-preview" id="preview-icon"><span>◇</span></div>
+                        <label class="image-upload-button" for="upload-icon" aria-label="Изменить иконку магазина">Изменить<input id="upload-icon" type="file" accept="image/png,image/jpeg,image/webp"></label>
+                        <button class="image-reset-button" type="button" data-reset-image="icon" aria-label="Сбросить иконку">↻</button>
+                    </div>
+                </section>
+
+                <section class="image-setting-row" data-image-key="logo">
+                    <div class="image-setting-copy">
+                        <h2>Логотип магазина</h2>
+                        <p>Отображается в навигационной панели магазина и в футере.</p>
+                        <span>Рекомендуем 512×512, PNG</span>
+                    </div>
+                    <div class="image-setting-controls">
+                        <div class="image-preview logo-preview" id="preview-logo"><span>SD</span></div>
+                        <label class="image-upload-button" for="upload-logo" aria-label="Изменить логотип магазина">Изменить<input id="upload-logo" type="file" accept="image/png,image/jpeg,image/webp"></label>
+                        <button class="image-reset-button" type="button" data-reset-image="logo" aria-label="Сбросить логотип">↻</button>
+                    </div>
+                </section>
+
+                <section class="image-setting-row" data-image-key="background">
+                    <div class="image-setting-copy">
+                        <h2>Фоновое изображение</h2>
+                        <p>Отображается на странице магазина.</p>
+                        <span>Рекомендуем 1920×1080, JPG</span>
+                    </div>
+                    <div class="image-setting-controls">
+                        <div class="image-preview wide-preview" id="preview-background"><span>ФОН</span></div>
+                        <label class="image-upload-button" for="upload-background" aria-label="Изменить фоновое изображение">Изменить<input id="upload-background" type="file" accept="image/png,image/jpeg,image/webp"></label>
+                        <button class="image-reset-button" type="button" data-reset-image="background" aria-label="Сбросить фоновое изображение">↻</button>
+                    </div>
+                </section>
+
+                <section class="image-setting-row" data-image-key="additional">
+                    <div class="image-setting-copy">
+                        <h2>Дополнительное изображение</h2>
+                        <p>Отображается ниже витрины магазина или в его правой части.</p>
+                        <span>Рекомендуем 1920×1080, JPG</span>
+                    </div>
+                    <div class="image-setting-controls">
+                        <div class="image-preview wide-preview" id="preview-additional"><span>ИЗОБРАЖЕНИЕ</span></div>
+                        <label class="image-upload-button" for="upload-additional" aria-label="Изменить дополнительное изображение">Изменить<input id="upload-additional" type="file" accept="image/png,image/jpeg,image/webp"></label>
+                        <button class="image-reset-button" type="button" data-reset-image="additional" aria-label="Сбросить дополнительное изображение">↻</button>
+                    </div>
+                </section>
+
+                <p class="images-message" id="images-message" role="status" hidden></p>
+                <div class="images-form-actions">
+                    <button class="save-images-button" type="submit">Сохранить</button>
+                    <button class="cancel-images-button" id="cancel-images" type="button">Отмена</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <div class="images-toast" id="images-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-image-storage.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./store-images.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Настройки демо-магазина SDonate.">
+    <title>Настройки магазина — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/store-settings.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html" aria-current="page"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content store-settings-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Демо-настройки</b> — изменения сохраняются только в этой вкладке, сервер и платежи не подключены.</span><a class="demo-back-link" id="back-to-store" href="./shops.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7"></path></svg><span>К магазину</span></a></div>
+
+        <section class="settings-title">
+            <a id="settings-back-button" class="settings-back-button" href="./shops.html" aria-label="Назад">←</a>
+            <div>
+                <h1><span id="settings-shop-name-heading">Магазин</span> <span>— настройки</span></h1>
+                <p>Управляйте настройками вашего магазина</p>
+            </div>
+        </section>
+
+        <div class="settings-layout">
+            <section class="settings-main-column">
+                <form class="store-settings-form" id="store-settings-form">
+                    <div class="domains-list" id="domains-list" aria-label="Домены магазина"></div>
+                    <button class="add-domain-button" id="add-domain" type="button"><img class="action-icon" src="./img/save-plus.png" alt=""> Добавить дополнительный домен</button>
+
+                    <label class="store-setting-field" for="store-name-input">
+                        <span>Название магазина</span>
+                        <input id="store-name-input" name="name" type="text" minlength="2" maxlength="40" required>
+                    </label>
+
+                    <label class="store-setting-field" for="payout-method">
+                        <span>Способ выдачи</span>
+                        <select id="payout-method" name="payoutMethod">
+                            <option value="RCON">RCON</option>
+                            <option value="Webhook">Webhook</option>
+                            <option value="Вручную">Вручную</option>
+                            <option value="Плагин SdPlayments">Плагин SdPlayments</option>
+                        </select>
+                    </label>
+
+                    <div class="commission-field">
+                        <div class="commission-heading"><span>Разделение комиссии</span><span class="commission-demo-label">ДЕМО</span></div>
+                        <div class="commission-control">
+                            <span>Пользователь (<b id="user-commission">95</b>%)</span>
+                            <input id="commission-slider" type="range" min="0" max="100" value="5" aria-label="Доля комиссии магазина">
+                            <span>Магазин (<b id="store-commission">5</b>%)</span>
+                        </div>
+                    </div>
+
+                    <p class="settings-message" id="settings-message" role="status" hidden></p>
+                    <div class="settings-form-actions">
+                        <button class="save-settings-button" type="submit">Сохранить</button>
+                        <button class="delete-settings-button" id="delete-store" type="button">Удалить магазин</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="settings-tools-grid" aria-label="Дополнительные настройки">
+                <article class="settings-tool-card">
+                    <div class="tool-card-heading"><span class="tool-icon blue-tool-icon">◉</span><div><h2>SdPlayments</h2><span class="tool-state stable-state">Stable</span></div></div>
+                    <p>Базовый плагин для Spigot/Paper 1.16.5+. Реальные платежи пока не подключены.</p>
+                    <a class="tool-primary-button" href="./downloads/SdPlayments-0.1.0-SNAPSHOT.jar" download="SdPlayments-0.1.0.jar">↓ Скачать JAR · 0.1.0</a>
+                </article>
+                <article class="settings-tool-card">
+                    <div class="tool-card-heading"><span class="tool-icon amber-tool-icon">♟</span><div><h2>SdPlayments</h2><span class="tool-state beta-state">В разработке</span></div></div>
+                    <p>Бета-сборки пока нет. Скачивается только проверенная базовая версия.</p>
+                    <button class="tool-secondary-button" type="button" disabled title="Бета-сборка ещё не готова">Бета-версия не готова</button>
+                </article>
+                <article class="settings-tool-card">
+                    <div class="tool-card-heading"><span class="tool-icon"><img src="./img/images.png" alt=""></span><h2>Картинки</h2></div>
+                    <p>Управление картинками в вашем магазине</p>
+                    <button class="tool-primary-button" type="button" data-demo-tool="Картинки">Настроить</button>
+                </article>
+                <article class="settings-tool-card">
+                    <div class="tool-card-heading"><span class="tool-icon">↗</span><h2>Ссылки</h2></div>
+                    <p>Управление ссылками на ваши социальные сети и магазин</p>
+                    <button class="tool-primary-button" type="button" data-demo-tool="Ссылки">Настроить</button>
+                </article>
+                <article class="settings-tool-card">
+                    <div class="tool-card-heading"><span class="tool-icon">♢</span><h2>Кастомизация</h2></div>
+                    <p>Управление текстами, цветовой палитрой и другими настройками</p>
+                    <button class="tool-primary-button" type="button" data-demo-tool="Кастомизация">Настроить</button>
+                </article>
+                <article class="settings-tool-card">
+                    <div class="tool-card-heading"><span class="tool-icon">◉</span><h2>Шаблон</h2></div>
+                    <p>Управление шаблоном вашего магазина и его приобретение</p>
+                    <button class="tool-primary-button" type="button" data-demo-tool="Шаблон">→ Выбрать</button>
+                </article>
+            </section>
+        </div>
+
+        <section class="copyright-card">
+            <div>
+                <h2>Скрытие копирайта</h2>
+                <p>Опция оформления магазина. В демо подписка и оплата не выполняются.</p>
+            </div>
+            <span class="subscription-price">99 ₽ / мес.</span>
+            <button class="tool-primary-button" type="button" data-demo-tool="Скрытие копирайта">→ Оформить подписку</button>
+        </section>
+    </main>
+
+    <dialog class="delete-store-dialog domain-setup-dialog" id="add-domain-dialog">
+        <form id="add-domain-form">
+            <span class="delete-warning-icon"><img class="action-icon" src="./img/save-plus.png" alt=""></span>
+            <h2 id="domain-dialog-title">Добавить домен</h2>
+            <p id="domain-dialog-description">Подключи собственный адрес к магазину. Настрой DNS у регистратора домена.</p>
+            <p class="domain-demo-notice">Демо-режим: DNS-записи ниже — примеры, подключение и проверка домена не выполняются.</p>
+            <label class="store-setting-field" for="domain-connection-type">
+                <span>Вы подключаете</span>
+                <select class="domain-dialog-input" id="domain-connection-type" name="connectionType">
+                    <option value="domain">Домен</option>
+                    <option value="subdomain">Поддомен</option>
+                </select>
+            </label>
+            <section class="domain-dns-guide" aria-labelledby="dns-guide-title">
+                <h3 id="dns-guide-title">Добавьте DNS-записи в настройках вашего домена</h3>
+                <div class="domain-dns-columns" aria-hidden="true"><span>Тип</span><span>Имя</span><span>Значение</span><span>Прокси (CF)</span></div>
+                <div class="domain-dns-table" id="domain-dns-table" aria-live="polite"></div>
+                <p class="domain-dns-note" id="domain-dns-note"></p>
+            </section>
+            <label class="store-setting-field" for="new-domain">
+                <span id="domain-input-label">Домен</span>
+                <input class="domain-dialog-input" id="new-domain" name="domain" type="text" placeholder="domain.com" maxlength="253" autocomplete="off" required>
+            </label>
+            <p class="domain-dialog-feedback" id="domain-dialog-feedback" role="status" hidden></p>
+            <div class="delete-dialog-actions">
+                <button class="tool-secondary-button" id="cancel-add-domain" type="button">Отмена</button>
+                <button class="tool-primary-button" id="domain-dialog-submit" type="submit">Добавить домен</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="delete-store-dialog" id="delete-store-dialog">
+        <span class="delete-warning-icon">!</span>
+        <h2>Удалить магазин?</h2>
+        <p>Магазин «<b id="confirm-store-name"></b>» будет удалён из списка. Это действие нельзя отменить.</p>
+        <div class="delete-dialog-actions">
+            <button class="tool-secondary-button" id="cancel-delete" type="button">Отмена</button>
+            <button class="delete-settings-button" id="confirm-delete" type="button">Удалить</button>
+        </div>
+    </dialog>
+    <div class="settings-toast" id="settings-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./store-settings.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

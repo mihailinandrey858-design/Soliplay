@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <meta name="description" content="Финансы и история операций в панели SDonate.">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <title>Финансы — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/finance.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link active" href="./finance.html" aria-current="page"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link" href="./shops.html"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content finance-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Операций пока нет.</b> Платежи и вывод средств не подключены.</span><a href="./index.html">На сайт ↗</a></div>
+
+        <div class="page-heading finance-heading">
+            <div>
+                <p class="eyebrow">ЛИЧНЫЙ КАБИНЕТ / ФИНАНСЫ</p>
+                <h1>Финансы</h1>
+                <p class="welcome">Баланс и история операций аккаунта <span id="finance-account-name">Игрок</span></p>
+            </div>
+            <time class="date-label" id="current-date"></time>
+        </div>
+
+        <section class="finance-overview" aria-label="Сводка по финансам">
+            <article class="balance-card">
+                <div class="balance-topline"><span class="balance-icon">₽</span><span>БАЛАНС</span><span class="demo-chip">ПУСТО</span></div>
+                <p class="balance-amount">0,00 <span>₽</span></p>
+                <p class="balance-caption"><span class="currency-dot">●</span> Платёжные операции пока не подключены</p>
+                <button class="secondary-button" id="withdraw-open" type="button"><span aria-hidden="true">↗</span> Вывести средства</button>
+            </article>
+            <div class="summary-stack">
+                <article class="summary-card">
+                    <span class="summary-icon withdrawals-icon">↗</span>
+                    <div><span>Выводы</span><b>0</b><small>операций пока нет</small></div>
+                    <span class="summary-trend">—</span>
+                </article>
+                <article class="summary-card">
+                    <span class="summary-icon deposits-icon">↙</span>
+                    <div><span>Поступления</span><b>0</b><small>операций пока нет</small></div>
+                    <span class="summary-trend">—</span>
+                </article>
+            </div>
+        </section>
+
+        <aside class="finance-notice">
+            <span class="notice-icon">i</span>
+            <p>В реальном сервисе операции обрабатываются после подключения платёжного провайдера. Здесь кнопки показывают интерфейс и не отправляют платежи или заявки.</p>
+        </aside>
+
+        <section class="history-grid" aria-label="История финансовых операций">
+            <article class="history-card">
+                <div class="history-heading">
+                    <div><span class="history-icon">↗</span><div><h2>История выводов</h2><p>Заявки на вывод средств</p></div></div>
+                    <span class="history-count">0 записей</span>
+                </div>
+                <div class="transaction-list" id="withdrawal-list">
+                    <p class="transaction-empty">Заявок на вывод пока нет.</p>
+                </div>
+            </article>
+
+            <article class="history-card">
+                <div class="history-heading">
+                    <div><span class="history-icon income-history-icon">↙</span><div><h2>История доходов</h2><p>Поступления от магазинов</p></div></div>
+                    <div class="history-actions"><span class="history-count">0 записей</span></div>
+                </div>
+                <div class="transaction-list" id="income-list">
+                    <p class="transaction-empty">Поступлений пока нет.</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="requisites-card" aria-labelledby="requisites-title">
+            <div class="requisites-heading">
+                <div><span class="history-icon">▤</span><div><h2 id="requisites-title">Платёжные реквизиты</h2><p>Способы получения выплат и вывода средств</p></div></div>
+                <div class="requisites-actions">
+                    <button class="small-button" type="button" data-method="card"><span aria-hidden="true">▤</span> Привязать карту</button>
+                    <button class="small-button" type="button" data-method="wallet"><span aria-hidden="true">₮</span> USDT-кошелёк</button>
+                </div>
+            </div>
+            <p class="transaction-empty">Платёжные реквизиты ещё не добавлены.</p>
+        </section>
+
+        <section class="autopayout-card">
+            <span class="autopayout-icon">↻</span>
+            <div><h2>Автовыплаты</h2><p>В демо-режиме переключатель меняет только внешний вид настройки. Автоматические выплаты не выполняются.</p></div>
+            <label class="toggle-control" aria-label="Включить демонстрационный режим автовыплат">
+                <input id="autopayout-toggle" type="checkbox">
+                <span class="toggle-track"></span>
+            </label>
+        </section>
+    </main>
+
+    <dialog class="finance-dialog" id="finance-dialog">
+        <form method="dialog" class="dialog-close-form"><button class="dialog-close" aria-label="Закрыть">×</button></form>
+        <div class="dialog-icon" id="dialog-icon">↗</div>
+        <p class="eyebrow">ДЕМО-ИНТЕРФЕЙС</p>
+        <h2 id="dialog-title">Вывод средств</h2>
+        <p class="dialog-description" id="dialog-description">Заявка не будет отправлена. Реальные финансовые операции пока не подключены.</p>
+        <form id="demo-action-form">
+            <label class="dialog-label" for="demo-amount" id="dialog-field-label">Сумма вывода</label>
+            <div class="dialog-input-wrap"><input id="demo-amount" type="number" min="1" step="1" placeholder="Например, 100" required><span id="dialog-suffix">₽</span></div>
+            <div id="dialog-method-field">
+                <label class="dialog-label" for="demo-method" id="dialog-method-label">Способ вывода</label>
+                <select id="demo-method"><option>USDT · TRC20 (демо)</option><option>Банковская карта (демо)</option></select>
+            </div>
+            <p class="dialog-message" id="dialog-message" role="status" hidden></p>
+            <button class="dialog-submit" id="dialog-submit" type="submit">Понятно</button>
+        </form>
+    </dialog>
+    <div class="toast-message" id="finance-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./finance.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

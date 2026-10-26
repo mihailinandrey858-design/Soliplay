@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <meta name="description" content="Настройки и безопасность аккаунта SDonate.">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <title>Настройки — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/settings.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link" href="./shops.html"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link active" href="./settings.html" aria-current="page"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content settings-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Настройки аккаунта</b> — профиль и аватар остаются демо-настройками. Заявка на верификацию хранится на сервере.</span><a href="./index.html">На сайт ↗</a></div>
+
+        <div class="page-heading settings-heading">
+            <div>
+                <p class="eyebrow">ЛИЧНЫЙ КАБИНЕТ / АККАУНТ</p>
+                <h1>Настройки</h1>
+                <p class="welcome">Профиль и безопасность аккаунта <span id="settings-account-name">Игрок</span></p>
+            </div>
+            <div class="settings-heading-actions">
+                <a class="admin-dashboard-link" id="admin-dashboard-link" href="./admin.html" hidden>Панель управления</a>
+                <a class="back-dashboard" href="./dashboard.html">← На главную панели</a>
+            </div>
+        </div>
+
+        <section class="avatar-section settings-panel" aria-labelledby="avatar-title">
+            <div class="avatar-preview-wrap">
+                <div class="large-avatar" id="avatar-preview" aria-label="Аватар профиля"><span id="avatar-initial">S</span></div>
+                <span class="avatar-online-dot" aria-label="Демо-аккаунт"></span>
+            </div>
+            <div class="avatar-copy">
+                <h2 id="avatar-title">Смена аватара</h2>
+                <p>Выбери изображение для профиля. Оно сохранится в этом браузере и останется после обновления страницы.</p>
+                <small>PNG, JPG или WEBP · до 10 МБ</small>
+                <input class="visually-hidden" id="avatar-file" type="file" accept="image/png,image/jpeg,image/webp">
+                <label class="accent-button upload-button" for="avatar-file">Выбрать изображение</label>
+                <button class="subtle-button" id="avatar-reset" type="button" hidden>Сбросить аватар</button>
+                <p class="field-error" id="avatar-error" role="status" hidden></p>
+            </div>
+        </section>
+
+        <section class="two-factor-panel settings-panel">
+            <span class="security-symbol">◇</span>
+            <div class="two-factor-copy">
+                <div class="two-factor-title"><h2>Двухфакторная аутентификация</h2><span class="disabled-badge" id="two-factor-state">Выключена</span></div>
+                <p>Дополнительная защита аккаунта через приложение-аутентификатор. Переключатель демонстрационный, коды подтверждения не отправляются.</p>
+            </div>
+            <button class="accent-button" id="two-factor-toggle" type="button" aria-pressed="false">Включить 2FA</button>
+        </section>
+
+        <section class="settings-grid">
+            <article class="settings-panel profile-panel">
+                <div class="panel-heading"><span class="panel-icon">♙</span><div><h2>Основное</h2><p>Профиль и внешний вид панели</p></div></div>
+                <form id="profile-form">
+                    <label class="settings-label" for="nickname">Никнейм</label>
+                    <input class="settings-input" id="nickname" name="nickname" type="text" minlength="3" maxlength="16" pattern="[A-Za-z0-9_]{3,16}" autocomplete="nickname" required>
+                    <label class="settings-label" for="email">Почта</label>
+                    <input class="settings-input" id="email" name="email" type="email" autocomplete="email" required>
+                    <label class="settings-label" for="chart-style">Тип графика <span class="info-dot" title="Сохраняется в этой вкладке">i</span></label>
+                    <select class="settings-input settings-select" id="chart-style" name="chart-style">
+                        <option value="area">Область</option>
+                        <option value="line">Линия</option>
+                        <option value="bars">Столбцы</option>
+                    </select>
+                    <button class="accent-button save-button" type="submit"><span aria-hidden="true">✓</span> Сохранить</button>
+                    <p class="settings-message" id="profile-message" role="status" hidden></p>
+                </form>
+            </article>
+
+            <article class="settings-panel account-actions-panel">
+                <div class="panel-heading"><span class="panel-icon">⚙</span><div><h2>Действия с аккаунтом</h2><p>Управление демо-профилем</p></div></div>
+                <div class="action-list">
+                    <button class="account-action" type="button" data-account-action="email"><span>✉</span> Изменить почту</button>
+                    <button class="account-action" type="button" data-account-action="password"><span>⌑</span> Изменить пароль</button>
+                    <button class="account-action" type="button" data-account-action="reset"><span>↻</span> Сбросить пароль</button>
+                    <button class="account-action signout-action" id="settings-logout" type="button"><span>↪</span> Выйти из аккаунта</button>
+                    <button class="delete-account-button" id="delete-account" type="button" disabled title="Удаление серверного аккаунта пока не подключено"><span>⌫</span> Удаление аккаунта недоступно</button>
+                </div>
+            </article>
+
+            <article class="settings-panel verification-panel">
+                <div class="panel-heading"><span class="panel-icon">♧</span><div><h2>Верификация</h2><p>Проверка аккаунта</p></div></div>
+                <div class="verification-card">
+                    <div class="verification-title"><span>✓</span><b>Проверка личности</b><span class="verification-status" id="verification-badge">Не проверено</span></div>
+                    <p>Введи свои данные и подтверди согласие. ФИО и телефон сохраняются только на сервере SDonate и не отправляются в Telegram.</p>
+                    <p class="verification-state" id="verification-state" role="status">Загрузка статуса…</p>
+                    <form class="verification-form" id="verification-form">
+                        <label>Фамилия<input name="surname" autocomplete="family-name" maxlength="64" required></label>
+                        <label>Имя<input name="firstName" autocomplete="given-name" maxlength="64" required></label>
+                        <label>Отчество<input name="patronymic" autocomplete="additional-name" maxlength="64" required></label>
+                        <label>Телефон<input name="phone" type="tel" autocomplete="tel" maxlength="24" placeholder="+7 900 000-00-00" required></label>
+                        <label class="verification-consent"><input name="consent" type="checkbox" required><span>Согласен на обработку ФИО и телефона для проверки аккаунта. Документы загружать не нужно.</span></label>
+                        <button class="verification-button" id="verification-submit" type="submit">Отправить заявку</button>
+                    </form>
+                    <p class="verification-feedback" id="verification-feedback" role="status" hidden></p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <dialog class="settings-dialog" id="settings-dialog">
+        <form method="dialog" class="dialog-dismiss"><button class="dialog-x" aria-label="Закрыть">×</button></form>
+        <span class="dialog-mark" id="dialog-mark">✉</span>
+        <p class="eyebrow">ДЕМО-НАСТРОЙКИ</p>
+        <h2 id="dialog-title">Действие с аккаунтом</h2>
+        <p class="dialog-description" id="dialog-description">Серверное сохранение пока не подключено.</p>
+        <form id="settings-dialog-form">
+            <div class="dialog-fields" id="dialog-fields"></div>
+            <p class="dialog-feedback" id="dialog-feedback" role="status" hidden></p>
+            <div class="dialog-actions" id="dialog-actions">
+                <button class="subtle-button" id="dialog-cancel" type="button">Отмена</button>
+                <button class="accent-button" id="dialog-confirm" type="submit">Продолжить</button>
+            </div>
+        </form>
+    </dialog>
+    <div class="settings-toast" id="settings-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./settings.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

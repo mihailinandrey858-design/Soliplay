@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <meta name="description" content="Страницы магазина SDonate.">
+    <title>Страницы — SDonate</title>
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/store-pages.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html"><img src="./img/Серебристый куб с эмблемой SD.png" alt=""><span>SDonate</span></a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu"><span class="account-avatar" id="account-avatar">S</span><span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span><button class="logout-button" id="logout-button" type="button">Выйти</button></div>
+        </div>
+    </header>
+
+    <main class="dashboard-content store-pages-content">
+        <div class="pages-demo-banner"><span class="pages-demo-icon" aria-hidden="true">i</span><span><b>Демо-страницы</b> — пока сохраняются в браузере и доступны в предпросмотре витрины.</span><a id="back-to-shop" href="./shops.html">← К магазину</a></div>
+        <section class="pages-heading">
+            <div><p class="eyebrow">МАГАЗИН <span>/</span> КОНТЕНТ</p><h1>Страницы</h1><p id="pages-shop-caption">Создавайте правила и информационные страницы магазина.</p></div>
+            <a class="pages-preview-button" id="open-store-preview" href="./public-store.html">Открыть витрину <span aria-hidden="true">↗</span></a>
+        </section>
+
+        <section class="pages-editor-panel">
+            <form id="page-form" class="pages-form">
+                <header class="pages-form-heading">
+                    <div class="pages-title-wrap">
+                        <button class="pages-back-button" id="cancel-edit" type="button" aria-label="Сбросить форму" hidden>←</button>
+                        <div><p class="eyebrow">КОНТЕНТ МАГАЗИНА</p><h2 id="page-form-title">Добавление страницы</h2></div>
+                    </div>
+                    <span class="pages-demo-badge">MARKDOWN</span>
+                </header>
+                <p class="pages-form-intro">Укажите заголовок, описание и адрес страницы, а затем добавьте содержимое в редакторе.</p>
+
+                <div class="pages-meta-fields">
+                    <label class="pages-field"><span>Заголовок страницы <b>*</b></span><input name="title" type="text" maxlength="100" placeholder="Правила проекта" required></label>
+                    <label class="pages-field"><span>Описание страницы <b>*</b></span><input name="description" type="text" maxlength="180" placeholder="Подробнее о правилах нашего проекта..." required></label>
+                    <label class="pages-field"><span>Адрес страницы <b>*</b></span><input name="address" type="text" maxlength="180" placeholder="rules или https://site.com" required><small>Короткий адрес создаст страницу магазина. Полная ссылка http(s) откроет внешний сайт.</small></label>
+                </div>
+
+                <label class="pages-field pages-content-label" for="page-content"><span>Содержимое страницы</span></label>
+                <div class="pages-editor-toolbar" role="toolbar" aria-label="Форматирование Markdown">
+                    <button type="button" data-insert="**текст**" aria-label="Жирный" title="Жирный"><b>B</b></button>
+                    <button type="button" data-insert="*текст*" aria-label="Курсив" title="Курсив"><i>I</i></button>
+                    <button type="button" data-insert="~~текст~~" aria-label="Зачёркнутый" title="Зачёркнутый"><s>S</s></button>
+                    <span class="toolbar-separator"></span>
+                    <button type="button" data-prefix="# " aria-label="Заголовок" title="Заголовок">H</button>
+                    <button type="button" data-prefix="> " aria-label="Цитата" title="Цитата">❞</button>
+                    <button type="button" data-prefix="- " aria-label="Список" title="Список">☷</button>
+                    <button type="button" data-insert="`код`" aria-label="Код" title="Код">&lt;/&gt;</button>
+                    <button type="button" data-insert="[ссылка](https://example.com)" aria-label="Ссылка" title="Ссылка">↗</button>
+                    <span class="toolbar-spacer"></span>
+                    <button type="button" class="pages-view-button active" data-view="split" aria-pressed="true">Редактор и просмотр</button>
+                    <button type="button" class="pages-view-button" data-view="edit" aria-pressed="false">Редактор</button>
+                    <button type="button" class="pages-view-button" data-view="preview" aria-pressed="false">Просмотр</button>
+                </div>
+                <div class="pages-editor-workspace" id="pages-editor-workspace" data-view="split">
+                    <textarea id="page-content" name="content" maxlength="20000" placeholder="# Правила проекта&#10;&#10;Опишите правила, важные ссылки и информацию для игроков.&#10;&#10;- Будьте уважительны&#10;- Не используйте читы"></textarea>
+                    <article class="pages-live-preview markdown-content" id="page-live-preview" aria-label="Предпросмотр содержимого"></article>
+                </div>
+                <footer class="pages-editor-footer"><span id="page-character-count">0 / 20000 символов</span><label><input id="page-auto-preview" type="checkbox" checked> Живой предпросмотр</label></footer>
+                <p class="pages-form-feedback" id="pages-form-feedback" role="alert" hidden></p>
+                <div class="pages-form-actions"><button class="pages-cancel-button" id="reset-page-form" type="button">Очистить</button><button class="pages-save-button" type="submit"><span aria-hidden="true">＋</span> <span id="pages-save-label">Добавить страницу</span></button></div>
+            </form>
+        </section>
+
+        <section class="pages-list-section">
+            <div class="pages-list-heading"><div><h2>Страницы магазина</h2><p>Внутренние страницы появятся в меню витрины. Внешние ссылки откроются отдельно.</p></div><span class="pages-count" id="pages-count">0 страниц</span></div>
+            <div class="pages-list" id="pages-list"></div>
+            <p class="pages-empty" id="pages-empty">Страниц пока нет. Создайте первую выше.</p>
+        </section>
+    </main>
+
+    <dialog class="pages-delete-dialog" id="pages-delete-dialog">
+        <span aria-hidden="true">!</span><h2>Удалить страницу?</h2><p>Страница <b id="pages-delete-title"></b> будет удалена из демо-магазина.</p>
+        <div><button class="pages-cancel-button" id="cancel-page-delete" type="button">Отмена</button><button class="pages-delete-button" id="confirm-page-delete" type="button">Удалить</button></div>
+    </dialog>
+    <div class="pages-toast" id="pages-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./markdown-renderer.js"></script>
+    <script src="./store-pages.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090a13">
+    <meta name="description" content="Создай аккаунт SDonate и подготовь магазин для своего Minecraft-сервера.">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/reg.css">
+    <title>Аккаунт SDonate — регистрация</title>
+
+</head>
+<body>
+    <a class="back-link" href="./index.html"><span aria-hidden="true">←</span> На главную</a>
+    <main class="auth-layout">
+        <div class="ambient ambient-one" aria-hidden="true"></div>
+        <div class="ambient ambient-two" aria-hidden="true"></div>
+        <section class="auth-card" aria-labelledby="auth-title">
+            <a href="./index.html" class="brand" aria-label="SDonate — на главную">
+                <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+                <span>SDonate</span>
+            </a>
+
+            <div class="auth-heading">
+                <span class="auth-kicker">АККАУНТ SDonate</span>
+                <h1 id="auth-title">Создай аккаунт</h1>
+                <p id="auth-subtitle">Начни собирать свой магазин для сервера</p>
+            </div>
+
+            <form class="auth-form" id="auth-form" novalidate>
+                <div class="nickname-field" id="nickname-field">
+                    <label class="field-label" for="nickname">Никнейм</label>
+                    <div class="input-wrap">
+                        <span class="input-icon" aria-hidden="true">♙</span>
+                        <input id="nickname" name="nickname" type="text" placeholder="Твой игровой ник" autocomplete="nickname" minlength="3" maxlength="16" pattern="[A-Za-z0-9_]{3,16}" required>
+                    </div>
+                </div>
+
+                <label class="field-label email-label" for="email">Email</label>
+                <div class="input-wrap">
+                    <span class="input-icon" aria-hidden="true">@</span>
+                    <input id="email" name="email" type="email" placeholder="name@example.com" autocomplete="email" required>
+                </div>
+
+                <div class="password-label-row">
+                    <label class="field-label" for="password">Пароль</label>
+                    <span class="password-hint" id="password-hint">Не меньше 8 символов</span>
+                </div>
+                <div class="input-wrap">
+                    <span class="input-icon lock-icon" aria-hidden="true">◆</span>
+                    <input id="password" name="password" type="password" placeholder="Придумай пароль" autocomplete="new-password" minlength="8" required>
+                    <button class="show-password" type="button" aria-label="Показать пароль" aria-pressed="false">Показать</button>
+                </div>
+
+                <div class="confirm-field" id="confirm-field">
+                    <label class="field-label" for="confirm-password">Повтори пароль</label>
+                    <div class="input-wrap">
+                        <span class="input-icon lock-icon" aria-hidden="true">◆</span>
+                        <input id="confirm-password" name="confirm-password" type="password" placeholder="Введи пароль ещё раз" autocomplete="new-password" required>
+                    </div>
+                </div>
+
+                <label class="terms-row" id="terms-row">
+                    <input id="terms" name="terms" type="checkbox" required>
+                    <span class="custom-checkbox" aria-hidden="true"></span>
+                    <span>Я принимаю <a href="#demo-note">условия использования</a> и <a href="#demo-note">политику конфиденциальности</a></span>
+                </label>
+
+                <button class="forgot-link" id="forgot-link" type="button" hidden>Забыли пароль?</button>
+                <button class="submit-button" id="submit-button" type="submit"><span>Создать аккаунт</span><span aria-hidden="true">↗</span></button>
+                <p class="form-message" id="form-message" role="status" aria-live="polite" hidden></p>
+            </form>
+
+            <div class="auth-switch">
+                <span id="switch-label">Уже есть аккаунт?</span>
+                <a href="?mode=login" id="mode-toggle">Войти</a>
+            </div>
+
+            <p class="demo-note" id="demo-note"><span aria-hidden="true">i</span> Вход и регистрация требуют запущенный сервер SDonate.</p>
+        </section>
+        <div class="auth-footnote"><span>SDonate</span><span>Инструменты для развития сервера</span></div>
+    </main>
+    <script src="./reg.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

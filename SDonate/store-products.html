@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Управление товарами демо-магазина SDonate.">
+    <title>Товары магазина — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/store-products.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html" aria-current="page"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content products-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Демо-товары</b> — данные сохраняются только в этой вкладке. Покупки, платежи и выдача команд не подключены.</span><a class="demo-back-link" id="back-to-shop" href="./shops.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7"></path></svg><span>К магазину</span></a></div>
+
+        <section class="products-heading">
+            <div>
+                <p class="eyebrow">УПРАВЛЕНИЕ МАГАЗИНОМ</p>
+                <h1><span id="products-shop-name">Магазин</span> — товары</h1>
+                <p class="products-subtitle">Создавай и редактируй товары витрины. Команды хранятся как текст и не выполняются.</p>
+            </div>
+            <button class="new-product-button" id="new-product-button" type="button"><img class="action-icon" src="./img/save-plus.png" alt=""> Создать товар</button>
+        </section>
+
+        <section class="product-editor" id="product-editor">
+            <div class="editor-heading">
+                <div>
+                    <p class="eyebrow" id="editor-eyebrow">НОВЫЙ ТОВАР</p>
+                    <h2 id="editor-title">Создание товара</h2>
+                </div>
+                <button class="close-editor-button" id="close-editor" type="button" aria-label="Закрыть редактор">×</button>
+            </div>
+
+            <form id="product-form">
+                <div class="product-form-grid">
+                    <section class="product-form-column">
+                        <div class="category-picker">
+                            <div class="category-tabs" id="category-tabs" role="group" aria-label="Категория товара"></div>
+                            <button class="add-category-button" id="add-category-button" type="button" aria-label="Добавить категорию"><img class="action-icon" src="./img/save-plus.png" alt=""></button>
+                        </div>
+                        <input id="product-category" name="category" type="hidden" value="Привилегии">
+
+                        <label class="product-field" for="product-name">
+                            <span>Название товара</span>
+                            <input id="product-name" name="name" type="text" placeholder="Введите название" minlength="2" maxlength="60" required>
+                        </label>
+                        <label class="product-field" for="product-description">
+                            <span>Описание товара</span>
+                            <textarea id="product-description" name="description" placeholder="Удивите своим описанием!" maxlength="500" rows="3"></textarea>
+                        </label>
+
+                        <details class="delivery-details">
+                            <summary><span><b>Дополнительно — расширенные описания</b><small>Можно добавить текст для карточки товара</small></span><span class="summary-arrow">⌄</span></summary>
+                            <label class="product-field" for="product-extra-description">
+                                <span>Дополнительное описание</span>
+                                <textarea id="product-extra-description" name="extraDescription" maxlength="1000" rows="3" placeholder="Подробная информация о товаре"></textarea>
+                            </label>
+                        </details>
+
+                        <div class="price-quantity-row">
+                            <label class="product-field" for="product-price">
+                                <span>Стоимость</span>
+                                <span class="input-with-suffix"><input id="product-price" name="price" type="number" min="0" max="1000000" step="0.01" value="10" required><span>₽</span></span>
+                            </label>
+                            <span class="price-divider">/</span>
+                            <label class="product-field quantity-field" for="product-quantity">
+                                <span>Количество</span>
+                                <span class="input-with-suffix"><input id="product-quantity" name="quantity" type="number" min="1" max="1000000" step="1" value="1" required><span>шт.</span></span>
+                            </label>
+                        </div>
+
+                        <fieldset class="server-picker">
+                            <legend>Выберите сервер</legend>
+                            <div id="server-options"></div>
+                        </fieldset>
+                    </section>
+
+                    <section class="commands-column">
+                        <div class="commands-heading">
+                            <h3>Команды для выдачи</h3>
+                            <span class="command-demo-mark">НЕ ВЫПОЛНЯЮТСЯ</span>
+                        </div>
+                        <div class="command-list" id="command-list"></div>
+                        <button class="add-command-button" id="add-command-button" type="button"><img class="action-icon" src="./img/save-plus.png" alt=""> Добавить команду</button>
+                        <div class="command-help">
+                            <b>Пример для LuckPerms:</b>
+                            <span><code>lp user {user} parent add vip</code> — выдаёт группу vip игроку</span>
+                            <span>Замени <code>vip</code> на название своей группы.</span>
+                            <b>Доступные placeholders:</b>
+                            <span><code>{user}</code> — никнейм покупателя</span>
+                            <span><code>{amount}</code> — количество купленного товара</span>
+                        </div>
+                    </section>
+
+                    <section class="product-image-column">
+                        <h3>Изображение товара</h3>
+                        <label class="product-image-upload" for="product-image-input">
+                            <img id="product-image-preview" alt="Предпросмотр изображения товара" hidden>
+                            <span class="image-upload-placeholder" id="image-upload-placeholder"><img src="./img/images.png" alt=""><span>Выбрать изображение</span><small>PNG, JPG или WEBP · до 10 МБ, будет сжато автоматически</small></span>
+                            <input id="product-image-input" type="file" accept="image/png,image/jpeg,image/webp">
+                        </label>
+                        <button class="remove-image-button" id="remove-product-image" type="button" hidden>Удалить изображение</button>
+                    </section>
+                </div>
+
+                <p class="product-form-message" id="product-form-message" role="status" hidden></p>
+                <div class="product-form-actions">
+                    <button class="save-product-button" id="save-product-button" type="submit">Создать товар</button>
+                    <button class="cancel-product-button" id="cancel-product-button" type="button">Отмена</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="products-toolbar">
+            <div><h2>Товары магазина</h2><p id="products-count">0 товаров</p></div>
+            <label class="search-products"><span>⌕</span><input id="search-products" type="search" placeholder="Поиск товаров" aria-label="Поиск товаров"></label>
+        </section>
+        <section class="products-grid" id="products-grid" aria-label="Товары магазина"></section>
+        <section class="products-empty" id="products-empty" hidden>
+            <span>♜</span>
+            <h2>Товаров пока нет</h2>
+            <p>Создай первый товар — он появится в списке демо-магазина.</p>
+            <button class="new-product-button" type="button" data-open-editor><img class="action-icon" src="./img/save-plus.png" alt=""> Создать товар</button>
+        </section>
+    </main>
+
+    <dialog class="category-dialog" id="category-dialog">
+        <form id="category-form">
+            <h2>Новая категория</h2>
+            <p>Категория добавится к этому демо-магазину.</p>
+            <label class="product-field" for="new-category-name"><span>Название категории</span><input id="new-category-name" type="text" minlength="2" maxlength="24" required></label>
+            <p class="product-form-message" id="category-message" role="status" hidden></p>
+            <div class="category-dialog-actions">
+                <button class="cancel-product-button" id="cancel-category" type="button">Отмена</button>
+                <button class="save-product-button" type="submit">Добавить</button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="delete-product-dialog" id="delete-product-dialog">
+        <h2>Удалить товар?</h2>
+        <p>Товар «<b id="delete-product-name"></b>» будет удалён из демо-магазина.</p>
+        <div class="category-dialog-actions">
+            <button class="cancel-product-button" id="cancel-delete-product" type="button">Отмена</button>
+            <button class="delete-product-button" id="confirm-delete-product" type="button">Удалить</button>
+        </div>
+    </dialog>
+    <div class="products-toast" id="products-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./store-products.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Магазины аккаунта SDonate.">
+    <title>Магазины — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/shops.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html" aria-current="page"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content shops-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Демо-магазины</b> — список сохраняется только в этой вкладке. Публичные страницы и продажи пока не подключены.</span><a href="./index.html">На сайт ↗</a></div>
+
+        <section class="shops-heading">
+            <div>
+                <p class="eyebrow">УПРАВЛЕНИЕ МАГАЗИНАМИ</p>
+                <h1>Магазины</h1>
+                <p class="welcome">Магазины аккаунта <span id="shops-account-name">Игрок</span></p>
+            </div>
+            <a class="create-button" href="./shop-create.html"><img class="action-icon" src="./img/save-plus.png" alt=""> Создать магазин</a>
+        </section>
+
+        <div class="shops-toolbar">
+            <div class="section-title"><span class="section-icon">♧</span><h2>Ваши магазины</h2></div>
+            <span class="shop-count"><b id="shop-count">0</b> <span id="shop-count-label">МАГАЗИНОВ</span></span>
+        </div>
+
+        <section class="shop-list" id="shop-list" aria-label="Ваши магазины"></section>
+
+        <section class="shops-empty" id="shops-empty" hidden>
+            <span class="empty-store-icon">♧</span>
+            <h2>Пока нет магазинов</h2>
+            <p>Создай магазин, чтобы начать настраивать витрину своего сервера.</p>
+            <a class="create-button" href="./shop-create.html"><img class="action-icon" src="./img/save-plus.png" alt=""> Создать магазин</a>
+        </section>
+    </main>
+
+    <dialog class="shop-dialog" id="shop-dialog">
+        <button class="dialog-x" id="shop-dialog-close" type="button" aria-label="Закрыть">×</button>
+        <span class="dialog-mark">♧</span>
+        <p class="eyebrow">ДЕМО-МАГАЗИН</p>
+        <h2>Настроить магазин</h2>
+        <p class="dialog-description">Измени название и адрес сервера. Эти данные сохраняются только в этой вкладке.</p>
+        <form id="shop-edit-form">
+            <label class="dialog-label" for="edit-shop-name">Название магазина</label>
+            <input class="dialog-input" id="edit-shop-name" name="name" type="text" minlength="2" maxlength="40" required>
+            <label class="dialog-label" for="edit-shop-address">Адрес сервера <span>необязательно</span></label>
+            <input class="dialog-input" id="edit-shop-address" name="address" type="text" maxlength="100">
+            <p class="dialog-feedback" id="shop-edit-feedback" role="status" hidden></p>
+            <div class="dialog-actions">
+                <button class="delete-shop-button" id="delete-shop" type="button">Удалить магазин</button>
+                <span class="dialog-action-spacer"></span>
+                <button class="subtle-button" id="shop-edit-cancel" type="button">Отмена</button>
+                <button class="create-button dialog-save-button" type="submit">Сохранить изменения <span aria-hidden="true">↗</span></button>
+            </div>
+        </form>
+    </dialog>
+    <dialog class="shop-dialog delete-dialog" id="delete-dialog">
+        <span class="dialog-mark delete-mark">!</span>
+        <p class="eyebrow">УДАЛЕНИЕ МАГАЗИНА</p>
+        <h2>Удалить магазин?</h2>
+        <p class="dialog-description">Магазин «<b id="delete-shop-name"></b>» будет удалён из демо-списка. Это действие нельзя отменить.</p>
+        <div class="dialog-actions">
+            <button class="subtle-button" id="delete-cancel" type="button">Отмена</button>
+            <button class="delete-shop-button confirm-delete-button" id="confirm-delete" type="button">Удалить</button>
+        </div>
+    </dialog>
+    <div class="shops-toast" id="shops-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./shops.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

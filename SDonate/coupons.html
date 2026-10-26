@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <meta name="description" content="Управление купонами магазина SDonate.">
+    <title>Купоны — SDonate</title>
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/coupons.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content coupons-content">
+        <div class="coupon-demo-banner">
+            <span class="coupon-demo-icon" aria-hidden="true">i</span>
+            <span><b>Демо-раздел</b> — купоны сохраняются в этом браузере и пока не применяются при оплате.</span>
+            <a id="back-to-shop" href="./shops.html">← К магазину</a>
+        </div>
+
+        <section class="coupons-heading">
+            <div class="coupons-heading-copy">
+                <p class="eyebrow">МАГАЗИН <span>/</span> ПРОДАЖИ</p>
+                <h1><span class="coupon-heading-mark" aria-hidden="true">%</span> Купоны</h1>
+                <p id="coupons-shop-caption">Управляйте скидками магазина</p>
+            </div>
+            <button class="coupon-add-button" id="add-coupon" type="button"><span aria-hidden="true">＋</span> Добавить купон</button>
+        </section>
+
+        <section class="coupon-stats" aria-label="Сводка купонов">
+            <article class="coupon-stat-card">
+                <span class="coupon-stat-icon violet" aria-hidden="true">▧</span>
+                <div><span>Всего купонов</span><b id="stat-total">0</b></div>
+            </article>
+            <article class="coupon-stat-card">
+                <span class="coupon-stat-icon green" aria-hidden="true">✓</span>
+                <div><span>Активные</span><b id="stat-active">0</b></div>
+            </article>
+            <article class="coupon-stat-card">
+                <span class="coupon-stat-icon blue" aria-hidden="true">↗</span>
+                <div><span>Использований</span><b id="stat-uses">0</b></div>
+            </article>
+        </section>
+
+        <section class="coupon-list-section">
+            <div class="coupon-list-heading">
+                <div>
+                    <h2>Ваши купоны</h2>
+                    <p>Создавайте промокоды и задавайте условия скидки</p>
+                </div>
+                <span class="coupon-count" id="coupon-count">0 купонов</span>
+            </div>
+            <div class="coupon-grid" id="coupon-grid"></div>
+            <div class="coupon-empty" id="coupon-empty">
+                <span class="coupon-empty-icon" aria-hidden="true">%</span>
+                <h3>Пока нет купонов</h3>
+                <p>Создайте первый промокод — он появится в этом списке.</p>
+                <button class="coupon-empty-button" id="empty-add-coupon" type="button">Создать купон</button>
+            </div>
+        </section>
+    </main>
+
+    <dialog class="coupon-dialog" id="coupon-dialog" aria-labelledby="coupon-dialog-title">
+        <form class="coupon-form" id="coupon-form">
+            <header class="coupon-dialog-heading">
+                <div class="coupon-dialog-title-wrap">
+                    <button class="coupon-dialog-back" id="close-coupon-dialog" type="button" aria-label="Закрыть">←</button>
+                    <div><p class="eyebrow">НАСТРОЙКА СКИДКИ</p><h2 id="coupon-dialog-title">Добавление купона</h2></div>
+                </div>
+                <span class="coupon-demo-badge">ДЕМО</span>
+            </header>
+            <p class="coupon-dialog-intro">Укажите название и код, выберите размер скидки и срок действия.</p>
+            <input name="id" type="hidden">
+
+            <div class="coupon-form-layout">
+                <div class="coupon-fields">
+                    <label class="coupon-field">
+                        <span>Название купона <b>*</b></span>
+                        <input name="name" type="text" maxlength="80" placeholder="Например, Скидка для новичков" required>
+                    </label>
+                    <label class="coupon-field">
+                        <span>Код <b>*</b></span>
+                        <div class="coupon-code-wrap"><input name="code" type="text" maxlength="32" placeholder="WELCOME10" autocomplete="off" required><span aria-hidden="true">⌗</span></div>
+                        <small>Покупатель вводит этот код при оформлении заказа.</small>
+                    </label>
+                    <div class="coupon-fields-row">
+                        <label class="coupon-field">
+                            <span>Процент скидки <b>*</b></span>
+                            <div class="coupon-suffix-wrap"><input name="discount" type="number" min="1" max="100" step="1" value="10" required><span>%</span></div>
+                        </label>
+                        <label class="coupon-field">
+                            <span>Число использований</span>
+                            <input name="maxUses" type="number" min="1" step="1" placeholder="Без ограничения">
+                        </label>
+                    </div>
+                    <div class="coupon-fields-row">
+                        <label class="coupon-field">
+                            <span>Дата начала</span>
+                            <input name="startAt" type="datetime-local">
+                        </label>
+                        <label class="coupon-field">
+                            <span>Дата окончания</span>
+                            <input name="endAt" type="datetime-local">
+                        </label>
+                    </div>
+                    <label class="coupon-active-toggle">
+                        <input name="active" type="checkbox" checked>
+                        <span class="coupon-switch" aria-hidden="true"></span>
+                        <span><b>Купон включён</b><small>Выключенный купон сохранится, но будет отмечен как неактивный.</small></span>
+                    </label>
+                    <p class="coupon-form-feedback" id="coupon-form-feedback" role="alert" hidden></p>
+                    <div class="coupon-form-actions">
+                        <button class="coupon-cancel-button" id="cancel-coupon" type="button">Отмена</button>
+                        <button class="coupon-save-button" type="submit"><span aria-hidden="true">✓</span> Сохранить купон</button>
+                    </div>
+                </div>
+
+                <aside class="coupon-options">
+                    <section class="coupon-option-section">
+                        <div class="coupon-option-heading"><div><h3>Товары</h3><p>Если ничего не выбрано — скидка действует на все товары.</p></div><span aria-hidden="true">▦</span></div>
+                        <div class="coupon-product-list" id="coupon-product-list"></div>
+                        <p class="coupon-options-empty" id="coupon-products-empty" hidden>Сначала добавьте товары в магазине — здесь можно будет выбрать позиции для скидки.</p>
+                    </section>
+                    <section class="coupon-option-section coupon-partners-section">
+                        <div class="coupon-option-heading"><div><h3>Партнёры купона</h3><p>Отметьте партнёров, которым будет привязан этот промокод.</p></div><span aria-hidden="true">♧</span></div>
+                        <div class="coupon-partner-list" id="coupon-partner-list"></div>
+                        <p class="coupon-options-empty" id="coupon-partners-empty" hidden>Партнёров пока нет. Добавьте их в разделе «Партнёры».</p>
+                    </section>
+                </aside>
+            </div>
+        </form>
+    </dialog>
+
+    <dialog class="coupon-confirm-dialog" id="coupon-delete-dialog">
+        <span class="coupon-delete-icon" aria-hidden="true">!</span>
+        <h2>Удалить купон?</h2>
+        <p>Купон <b id="coupon-delete-name"></b> будет удалён из этого демо-магазина.</p>
+        <div class="coupon-confirm-actions">
+            <button class="coupon-cancel-button" id="cancel-coupon-delete" type="button">Отмена</button>
+            <button class="coupon-delete-button" id="confirm-coupon-delete" type="button">Удалить</button>
+        </div>
+    </dialog>
+    <div class="coupon-toast" id="coupon-toast" role="status" aria-live="polite" hidden></div>
+
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./demo-image-storage.js"></script>
+    <script src="./coupons.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

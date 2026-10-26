@@ -1,0 +1,101 @@
+[
+  {
+    "id": "418dbd57-eb74-42b9-8bbc-72407d6fe076",
+    "nickname": "kobo256",
+    "email": "kazakovdanil@gmail.com",
+    "passwordHash": "727cf3c3ec518a63374fb8a25ed70d20:0ecda0bb1b63c5d2b78f09c928c4683c2e4acee50a2265cbdf2f9ae319597a9ddddf988c2373788218d8b17ef2091ab528c646e2093dfb8b01c34f857cdad0c9",
+    "role": "admin",
+    "active": true,
+    "createdAt": "2026-10-25T19:38:30.567Z"
+  },
+  {
+    "id": "01be5de4-df12-47d2-8039-3be293fcc999",
+    "nickname": "kobo226",
+    "email": "andreymihai3@gmail.com",
+    "passwordHash": "f3c48b00f7bb83fefdd1fa31a7d71bc2:a8f8181912cf2f965f72c29c2c65a569d28c5c9c2a7720d54ecb5817f02d3b8af00dea628e55d6373e9c1102988035000c78ecf65fde6c1130adaa20fd2e1980",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T19:59:32.345Z"
+  },
+  {
+    "id": "2dabaec9-0d14-4764-84d5-3f09749735ef",
+    "nickname": "kobo256",
+    "email": "andrej@gmail.com",
+    "passwordHash": "8d2f4a0f1883aecde4ef2cad39aa66f6:a99ce47c3d738b3590e229c21eb082618bff83f02668cbedb88170bd77a8ab9d2449b2318cca45d76e8bee955de193b935087c9f691a33b0ffff69bf94c53253",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T20:03:55.748Z"
+  },
+  {
+    "id": "c2c5e9be-7266-48ce-9570-99e4d2bc2f3f",
+    "nickname": "kobo256",
+    "email": "mihailinandre858@gmail.com",
+    "passwordHash": "cf637df5e16cd336cc0f671ec8bab95b:14f7d5e5addf592ca9d31c46b6c8b673e255e2dd26c098e4244713416af74910ae091e7e25eaee4f8609701ea231fbfadcf9bf60ecfd6c347aaea7e544689233",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T20:06:52.310Z"
+  },
+  {
+    "id": "35b3d2b3-23da-4e89-ae32-b81acb8761e8",
+    "nickname": "kobo256",
+    "email": "andrj@gmail.com",
+    "passwordHash": "462004e98666d804f48560b381112e1a:3b175b837e302f5a3846e80773705e537464eae07ef2a9264dfc3e110ce2c7e031323aa0ef681b1ad904b0f97124d0f6cbf741ab273f7fd3591b5ad6285f2753",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T20:13:35.947Z"
+  },
+  {
+    "id": "6ab3cb8e-a270-4605-a6cb-60f10f781d2f",
+    "nickname": "Maks",
+    "email": "mihailinadre858@gmail.com",
+    "passwordHash": "5704b0d87004ee7da24b0891eb6a08f9:f9f1dd4ff62badf2cbd6300fc27c3feb1ed92c75087faba259fb405a708639c9761e79479223c731a0b2dd092dddfadea65c6ed288a835c4d9e5385cdd401f9b",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T20:17:53.061Z"
+  },
+  {
+    "id": "123090b6-d58d-4263-949c-4b778fa5fc98",
+    "nickname": "kobo226",
+    "email": "andreym3ihai3@gmail.com",
+    "passwordHash": "51be7c7e8b623e1de0b848241ef91c88:7bf5dde197e5b98dc350d6224b0e248f12571385153eed05fadbfb60cb292d20bd2647ac46ecad7b67e172174b17953ab1f3c21774f005726fcc59c913e7c7c1",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T20:21:49.754Z"
+  },
+  {
+    "id": "00f65839-8fc2-4c07-a5b4-faa3010bff52",
+    "nickname": "kobo256",
+    "email": "andrem3ihai3@gmail.com",
+    "passwordHash": "8faea0e495aeabe85aeb40ca184a9db6:bf81486c1d321bc8dea4203a8a19b6cedaaf4458d09293cd888cd8248c1c0b054fa7cd4ca33a43c133906e2e2fe111c5c34908b02414dfb0e60bf9c3bbbaf37a",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T20:39:01.882Z"
+  },
+  {
+    "id": "c6ad1cf6-a727-4257-abab-11d82ec3ee85",
+    "nickname": "kobo256",
+    "email": "mihailinandr858@gmail.com",
+    "passwordHash": "664b6464dd99a40687c5154d280afeec:a466805bc15debac7001dd69fb89f50bb9ed409f1fd9e91011afc9b12d54ee910d3c32aadbf985c23b340cba621e9a72fcb98d223fc5e9a898f44e6bb4be7e13",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T20:51:03.325Z"
+  },
+  {
+    "id": "84375398-fc71-4349-ba5b-6a8f153d987c",
+    "nickname": "kobo226",
+    "email": "mihailinandrey58@gmail.com",
+    "passwordHash": "5bd94e0a3439a3ecdcfe7f33e2f12a94:1f2f71a015b621dc4874ec83dc490de10a92f62415b793a43388a2875f1c61e997bcf0b33095579f52cd001b16a395a2738335a2c48836bd672a6fa5f65376da",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T20:53:59.412Z"
+  },
+  {
+    "id": "3b64cf72-fdc1-469f-95b0-6db3a6ec04ef",
+    "nickname": "kobo226",
+    "email": "mihailinandre58@gmail.com",
+    "passwordHash": "96819bd41e6d57f44b3f50966508f346:fda489e1d25f136565154eeade77089f39058618785d8b46df0e1e60d043196edc94d82da51a59c66ab02ee64633c282e80740bae81efc6217945623ccc44a55",
+    "role": "user",
+    "active": true,
+    "createdAt": "2026-10-25T21:14:42.156Z"
+  }
+]

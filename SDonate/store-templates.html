@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Выбор оформления демо-магазина SDonate.">
+    <title>Шаблоны магазина — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/store-templates.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html" aria-current="page"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content templates-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Демо-шаблоны</b> — выбор хранится в этой вкладке и не меняет опубликованный сайт.</span><a id="back-to-settings" href="./shops.html">← Настройки магазина</a></div>
+
+        <section class="templates-panel">
+            <div class="templates-heading">
+                <a id="templates-back-button" class="templates-back-button" href="./shops.html" aria-label="Назад">←</a>
+                <div>
+                    <h1>Настройка шаблона</h1>
+                    <p>Управляйте шаблонами в вашем магазине и приобретайте их.</p>
+                </div>
+            </div>
+
+            <div class="templates-grid" id="templates-grid" aria-label="Доступные шаблоны"></div>
+            <p class="templates-message" id="templates-message" role="status" hidden></p>
+        </section>
+    </main>
+
+    <dialog class="template-preview-dialog" id="template-preview-dialog">
+        <button class="preview-close" id="preview-close" type="button" aria-label="Закрыть">×</button>
+        <div class="preview-large" id="preview-large"></div>
+        <h2 id="preview-title">Предпросмотр шаблона</h2>
+        <p id="preview-description"></p>
+        <button class="template-action-button" id="preview-apply" type="button">Применить</button>
+    </dialog>
+    <dialog class="template-purchase-dialog" id="template-purchase-dialog">
+        <span class="purchase-icon">₽</span>
+        <h2 id="purchase-title">Платный шаблон</h2>
+        <p id="purchase-description">Покупка и оплата в демо-режиме недоступны.</p>
+        <div class="purchase-actions">
+            <button class="template-secondary-button" id="purchase-cancel" type="button">Закрыть</button>
+            <button class="template-action-button" id="purchase-confirm" type="button">Перейти к оплате</button>
+        </div>
+    </dialog>
+    <div class="templates-toast" id="templates-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./store-templates.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

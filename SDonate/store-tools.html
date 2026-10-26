@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Демо-инструменты магазина SDonate.">
+    <title>Инструменты магазина — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/store-tools.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content store-tools-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Демо-инструмент</b> — настройки сохраняются в этой вкладке. Реальные подключения не выполняются.</span><a class="demo-back-link" id="back-to-shop" href="./shops.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7"></path></svg><span>К магазину</span></a></div>
+        <section class="tools-heading">
+            <div>
+                <p class="eyebrow">МАГАЗИН / УПРАВЛЕНИЕ</p>
+                <h1 id="tool-title">Инструмент магазина</h1>
+                <p id="tool-description">Настрой инструмент магазина.</p>
+            </div>
+            <a class="tool-back-link" id="back-to-settings" href="./shops.html">Настройки магазина</a>
+        </section>
+
+        <section class="tool-panel plugin-server-entry" id="plugin-server-entry" hidden>
+            <div class="plugin-server-copy">
+                <span class="plugin-server-icon" aria-hidden="true">▣</span>
+                <div>
+                    <h2>Серверы и лимит</h2>
+                    <p>Добавляй игровые серверы, настраивай адрес, порт и учёт онлайна.</p>
+                </div>
+            </div>
+            <a class="plugin-server-button" id="open-servers" href="./servers.html">Настроить серверы <span aria-hidden="true">↗</span></a>
+            <p class="plugin-server-note">Подключение к Minecraft и выдача команд пока не активны. Не указывай RCON-пароль в демо-режиме.</p>
+        </section>
+
+        <section class="plugin-dashboard" id="plugin-dashboard" aria-label="Настройки плагинов магазина" hidden>
+            <article class="plugin-setting-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">☁</span>
+                    <div><h2>Погода</h2><p>Выбери погодный эффект для магазина.</p></div>
+                </div>
+                <label class="plugin-select-label" for="plugin-weather">Погодный эффект</label>
+                <select class="plugin-select" id="plugin-weather" data-plugin-setting="weather">
+                    <option value="none">Без эффекта</option>
+                    <option value="spring">Весна</option>
+                    <option value="summer">Лето</option>
+                    <option value="autumn">Осень</option>
+                    <option value="winter">Зима</option>
+                </select>
+                <button class="plugin-setting-action" type="button" data-plugin-action="weather">Настройки эффекта</button>
+            </article>
+
+            <article class="plugin-setting-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">🛒</span>
+                    <div><h2>Последние покупки</h2><p>Показывать последние покупки в магазине.</p></div>
+                </div>
+                <label class="plugin-toggle-row">
+                    <span><b>Скрыть последние покупки</b><small data-plugin-status="recentPurchases"></small></span>
+                    <input type="checkbox" data-plugin-setting="recentPurchases" aria-label="Скрыть последние покупки">
+                    <span class="plugin-toggle-switch" aria-hidden="true"></span>
+                </label>
+                <p class="plugin-setting-note">Настройка влияет только на вид демо-панели.</p>
+            </article>
+
+            <article class="plugin-setting-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">♧</span>
+                    <div><h2>Уведомление</h2><p>Покажи сообщение сверху магазина.</p></div>
+                </div>
+                <button class="plugin-setting-action" type="button" data-plugin-action="notification">Создать уведомление</button>
+                <p class="plugin-setting-note">Текст уведомления пока не публикуется на витрине.</p>
+            </article>
+
+            <article class="plugin-setting-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">⇄</span>
+                    <div><h2>Переводы</h2><p>Переключатель демо-режима для переводов.</p></div>
+                </div>
+                <label class="plugin-toggle-row">
+                    <span><b>Включить переводы</b><small data-plugin-status="translations"></small></span>
+                    <input type="checkbox" data-plugin-setting="translations" aria-label="Включить переводы">
+                    <span class="plugin-toggle-switch" aria-hidden="true"></span>
+                </label>
+                <p class="plugin-setting-note">Автоматические переводы не выполняются.</p>
+            </article>
+
+            <article class="plugin-setting-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">▤</span>
+                    <div><h2>Редактор страницы</h2><p>Новый редактор оформления страницы магазина.</p></div>
+                </div>
+                <label class="plugin-toggle-row">
+                    <span><b>Новый визуальный редактор</b><small data-plugin-status="pageEditor"></small></span>
+                    <input type="checkbox" data-plugin-setting="pageEditor" aria-label="Включить новый визуальный редактор">
+                    <span class="plugin-toggle-switch" aria-hidden="true"></span>
+                </label>
+                <p class="plugin-setting-note">Страницы пока не публикуются автоматически.</p>
+            </article>
+
+            <article class="plugin-setting-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">▣</span>
+                    <div><h2>Корзина</h2><p>Настройка отображения корзины для покупателей.</p></div>
+                </div>
+                <label class="plugin-toggle-row">
+                    <span><b>Включить корзину</b><small data-plugin-status="cart"></small></span>
+                    <input type="checkbox" data-plugin-setting="cart" aria-label="Включить корзину">
+                    <span class="plugin-toggle-switch" aria-hidden="true"></span>
+                </label>
+            </article>
+
+            <article class="plugin-setting-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">🎁</span>
+                    <div><h2>Подарок</h2><p>Демо-настройка подарков для игроков.</p></div>
+                </div>
+                <label class="plugin-toggle-row">
+                    <span><b>Включить подарки</b><small data-plugin-status="gifts"></small></span>
+                    <input type="checkbox" data-plugin-setting="gifts" aria-label="Включить подарки">
+                    <span class="plugin-toggle-switch" aria-hidden="true"></span>
+                </label>
+                <div class="plugin-setting-actions">
+                    <button class="plugin-setting-action" type="button" data-plugin-action="gift-rewards">Награды</button>
+                    <button class="plugin-setting-action" type="button" data-plugin-action="gift-log">Журнал</button>
+                </div>
+            </article>
+
+            <article class="plugin-setting-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">☷</span>
+                    <div><h2>Покупка валюты через ползунок</h2><p>Демо-переключатель покупки игровой валюты.</p></div>
+                </div>
+                <label class="plugin-toggle-row">
+                    <span><b>Включить ползунок</b><small data-plugin-status="currencySlider"></small></span>
+                    <input type="checkbox" data-plugin-setting="currencySlider" aria-label="Включить покупку валюты через ползунок">
+                    <span class="plugin-toggle-switch" aria-hidden="true"></span>
+                </label>
+                <a class="plugin-setting-action" id="plugin-servers-link" href="./servers.html">Серверы и лимит</a>
+            </article>
+
+            <article class="plugin-setting-card plugin-payout-card">
+                <div class="plugin-setting-heading">
+                    <span class="plugin-setting-icon" aria-hidden="true">↑</span>
+                    <div><h2>Доплата <span class="plugin-beta-badge">БЕТА</span></h2><p>Настройка доплаты в демо-магазине.</p></div>
+                    <span class="plugin-off-badge">ВЫКЛ</span>
+                </div>
+                <p class="plugin-setting-note">Доплата отключена для всех магазинов.</p>
+                <a class="plugin-setting-action" id="plugin-payout-link" href="./store-settings.html">Настроить доплату</a>
+            </article>
+        </section>
+
+        <section class="tool-panel" id="tool-editor-panel">
+            <form class="tool-form" id="tool-form">
+                <div class="tool-form-heading">
+                    <h2 id="tool-form-title">Добавить запись</h2>
+                    <span class="tool-demo-badge">ДЕМО</span>
+                </div>
+                <div class="tool-fields" id="tool-fields"></div>
+                <p class="tool-feedback" id="tool-feedback" role="status" hidden></p>
+                <button class="tool-primary-button" id="tool-submit" type="submit">Сохранить</button>
+            </form>
+        </section>
+
+        <section class="tool-panel tool-records-panel" id="tool-records-panel">
+            <div class="tool-list-heading">
+                <div><h2 id="tool-list-title">Сохранённые записи</h2><p id="tool-list-description">Данные этого демо-магазина.</p></div>
+                <span class="tool-record-count" id="tool-record-count">0</span>
+            </div>
+            <div class="tool-record-list" id="tool-record-list"></div>
+            <p class="tool-empty" id="tool-empty">Пока нет записей. Добавь первую запись выше.</p>
+        </section>
+
+        <section class="analytics-dashboard" id="analytics-dashboard" aria-label="Демо-аналитика магазина" hidden>
+            <div class="analytics-notice">
+                <span aria-hidden="true">i</span>
+                <p><b>Данных пока нет.</b> Реальные посещения, покупки и платежи пока не собираются.</p>
+            </div>
+            <div class="analytics-grid">
+                <article class="analytics-card" style="--chart-color: #e7a84b">
+                    <div class="analytics-card-heading">
+                        <span class="analytics-icon">₽</span>
+                        <h2>Оборот</h2>
+                    </div>
+                    <strong class="analytics-value">0 ₽</strong>
+                    <p class="analytics-description">Покупок за неделю пока нет</p>
+                    <div class="analytics-bars" role="img" aria-label="Оборот за каждый день недели: 0">
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                    </div>
+                    <div class="analytics-days" aria-hidden="true"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+                </article>
+                <article class="analytics-card" style="--chart-color: #43c98a">
+                    <div class="analytics-card-heading">
+                        <span class="analytics-icon">↗</span>
+                        <h2>Доход</h2>
+                    </div>
+                    <strong class="analytics-value">0 ₽</strong>
+                    <p class="analytics-description">Доходов за неделю пока нет</p>
+                    <div class="analytics-bars" role="img" aria-label="Доход за каждый день недели: 0">
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                    </div>
+                    <div class="analytics-days" aria-hidden="true"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+                </article>
+                <article class="analytics-card" style="--chart-color: #45c8df">
+                    <div class="analytics-card-heading">
+                        <span class="analytics-icon">▤</span>
+                        <h2>Заказы</h2>
+                    </div>
+                    <strong class="analytics-value">0</strong>
+                    <p class="analytics-description">Заказов за неделю пока нет</p>
+                    <div class="analytics-bars" role="img" aria-label="Количество заказов за каждый день недели: 0">
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                    </div>
+                    <div class="analytics-days" aria-hidden="true"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+                </article>
+                <article class="analytics-card" style="--chart-color: #9777ef">
+                    <div class="analytics-card-heading">
+                        <span class="analytics-icon">◉</span>
+                        <h2>Средний чек</h2>
+                    </div>
+                    <strong class="analytics-value">0 ₽</strong>
+                    <p class="analytics-description">Заказов пока нет</p>
+                    <div class="analytics-bars" role="img" aria-label="Средний чек за каждый день недели: 0">
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                        <span style="--bar-height: 0%" aria-hidden="true"></span>
+                    </div>
+                    <div class="analytics-days" aria-hidden="true"><span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span><span>Пт</span><span>Сб</span><span>Вс</span></div>
+                </article>
+            </div>
+            <section class="analytics-summary">
+                <div>
+                    <h2>Популярные товары</h2>
+                    <p>Продаж пока нет.</p>
+                </div>
+                <div class="analytics-product-bars" aria-hidden="true">
+                    <span><b>VIP</b><i style="--product-width: 0%"></i><small>0</small></span>
+                    <span><b>Ключ</b><i style="--product-width: 0%"></i><small>0</small></span>
+                    <span><b>Монеты</b><i style="--product-width: 0%"></i><small>0</small></span>
+                </div>
+            </section>
+        </section>
+
+        <section class="social-links-panel" id="social-links-panel" hidden>
+            <div class="social-links-heading">
+                <span class="social-links-back-icon" aria-hidden="true">←</span>
+                <h2>Настройка ссылок</h2>
+            </div>
+            <p class="social-links-description">Управляйте ссылками на ваши социальные сети в магазине. Если оставить какое-либо поле пустым — ссылка не отобразится.</p>
+            <form class="social-links-form" id="social-links-form">
+                <label class="social-link-field">
+                    <span>Telegram</span>
+                    <span class="social-link-input-wrap"><input name="telegram" type="url" placeholder="https://t.me/mydonate"><span aria-hidden="true">➤</span></span>
+                </label>
+                <label class="social-link-field">
+                    <span>YouTube</span>
+                    <span class="social-link-input-wrap"><input name="youtube" type="url" placeholder="https://www.youtube.com/@mydonate"><span aria-hidden="true">▣</span></span>
+                </label>
+                <label class="social-link-field">
+                    <span>VK</span>
+                    <span class="social-link-input-wrap"><input name="vk" type="url" placeholder="https://vk.com/mydonate"><span aria-hidden="true">ᴠκ</span></span>
+                </label>
+                <label class="social-link-field">
+                    <span>Twitch</span>
+                    <span class="social-link-input-wrap"><input name="twitch" type="url" placeholder="https://twitch.tv/mydonate"><span aria-hidden="true">▢</span></span>
+                </label>
+                <label class="social-link-field">
+                    <span>Discord</span>
+                    <span class="social-link-input-wrap"><input name="discord" type="url" placeholder="https://discord.gg/mydonate"><span aria-hidden="true">◉</span></span>
+                </label>
+                <label class="social-link-field">
+                    <span>TikTok</span>
+                    <span class="social-link-input-wrap"><input name="tiktok" type="url" placeholder="https://tiktok.com/@mydonate"><span aria-hidden="true">♪</span></span>
+                </label>
+                <p class="social-links-feedback" id="social-links-feedback" role="status" hidden></p>
+                <button class="social-links-save" type="submit">Сохранить изменения</button>
+            </form>
+        </section>
+
+        <section class="customization-panel" id="customization-panel" hidden>
+            <div class="customization-panel-heading">
+                <div>
+                    <p class="eyebrow">ВНЕШНИЙ ВИД / МАГАЗИНА</p>
+                    <h2>Оформление витрины</h2>
+                    <p>Настрой цвета, описание и элементы, которые будут видны посетителям.</p>
+                </div>
+                <span class="tool-demo-badge">ПРЕДПРОСМОТР</span>
+            </div>
+            <div class="customization-layout">
+                <form class="customization-form" id="customization-form">
+                    <label class="customization-field">
+                        <span>Заголовок магазина</span>
+                        <textarea name="title" rows="2" maxlength="120" placeholder="Например, Мы победители!"></textarea>
+                        <small>Оставь пустым, чтобы скрыть заголовок на витрине.</small>
+                    </label>
+                    <label class="customization-field">
+                        <span>Описание магазина</span>
+                        <textarea name="description" rows="3" maxlength="500" placeholder="Расскажи о своём сервере"></textarea>
+                    </label>
+                    <div class="customization-subsection">
+                        <span class="customization-subsection-title">Блок под товарами</span>
+                        <label class="customization-field">
+                            <span>Заголовок блока</span>
+                            <input name="aboutTitle" type="text" maxlength="120" placeholder="Например, Добро пожаловать на сервер">
+                            <small>Оставь пустым, чтобы использовать название магазина.</small>
+                        </label>
+                        <label class="customization-field">
+                            <span>Текст блока</span>
+                            <textarea name="aboutDescription" rows="3" maxlength="500" placeholder="Расскажи игрокам о своём сервере"></textarea>
+                        </label>
+                    </div>
+                    <label class="customization-field">
+                        <span>Адрес основного сервера</span>
+                        <input name="address" type="text" maxlength="253" placeholder="play.example.com">
+                    </label>
+
+                    <div class="customization-image-field">
+                        <div>
+                            <span class="customization-image-title">Фоновая фотография</span>
+                            <small>Изображение появится в шапке предпросмотра магазина.</small>
+                        </div>
+                        <input class="visually-hidden" id="customization-image-input" type="file" accept="image/png,image/jpeg,image/webp">
+                        <div class="customization-image-actions">
+                            <label class="customization-image-button" for="customization-image-input">Выбрать фотографию</label>
+                            <button class="customization-image-remove" id="customization-image-remove" type="button" hidden>Удалить фото</button>
+                        </div>
+                        <span class="customization-image-filename" id="customization-image-filename">Файл не выбран</span>
+                        <p class="customization-feedback" id="customization-image-feedback" role="status" hidden></p>
+                    </div>
+
+                    <fieldset class="palette-field">
+                        <legend>Цветовая палитра</legend>
+                        <p>Выбери готовый цвет или укажи свой.</p>
+                        <div class="color-swatches" id="color-swatches" aria-label="Готовые цвета"></div>
+                        <label class="customization-color-field">
+                            <span>Свой цвет</span>
+                            <input name="accentColor" type="color" value="#625be2" aria-label="Выбрать цвет акцента">
+                            <input name="accentHex" type="text" value="#625be2" maxlength="7" pattern="#[0-9a-fA-F]{6}" aria-label="Цвет акцента в формате HEX">
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="customization-toggles">
+                        <legend>Элементы магазина</legend>
+                        <label class="customization-toggle">
+                            <input name="hideServers" type="checkbox">
+                            <span class="toggle-switch" aria-hidden="true"></span>
+                            <span><b>Скрыть серверы магазина</b><small>Список серверов не будет показан на витрине.</small></span>
+                        </label>
+                        <label class="customization-toggle">
+                            <input name="hideOverallOnline" type="checkbox">
+                            <span class="toggle-switch" aria-hidden="true"></span>
+                            <span><b>Скрыть общий онлайн</b><small>Не показывать сумму игроков на всех серверах.</small></span>
+                        </label>
+                        <label class="customization-toggle">
+                            <input name="tintBackgrounds" type="checkbox">
+                            <span class="toggle-switch" aria-hidden="true"></span>
+                            <span><b>Окрашивать фон</b><small>Подсветить фоновые блоки цветом акцента.</small></span>
+                        </label>
+                    </fieldset>
+                    <p class="customization-feedback" id="customization-feedback" role="status" hidden></p>
+                    <button class="tool-primary-button customization-save" type="submit">Сохранить оформление</button>
+                </form>
+
+                <aside class="customization-preview-column" aria-label="Предпросмотр магазина">
+                    <h3>Предпросмотр</h3>
+                    <div class="customization-preview" id="customization-preview">
+                        <div class="preview-store-banner">
+                            <img class="preview-store-background" id="preview-background-image" alt="" hidden>
+                            <span class="preview-store-label">МАГАЗИН СЕРВЕРА</span>
+                            <h4 id="preview-title">Мы победители!</h4>
+                            <p id="preview-description"></p>
+                            <div class="preview-store-meta">
+                                <span id="preview-address"></span>
+                                <span id="preview-online">Онлайн: 0</span>
+                            </div>
+                        </div>
+                        <div class="preview-actions">
+                            <button type="button" class="preview-buy">Купить</button>
+                            <button type="button" class="preview-benefits">Привилегии</button>
+                            <a href="#customization-preview" id="preview-details">Подробнее</a>
+                        </div>
+                        <div class="preview-about-block">
+                            <span>ИГРАЙ ВМЕСТЕ С НАМИ</span>
+                            <b id="preview-about-title">Добро пожаловать на сервер</b>
+                            <p id="preview-about-description">Текст о сервере появится здесь.</p>
+                        </div>
+                        <p class="preview-note">Это только предпросмотр — покупки здесь не выполняются.</p>
+                    </div>
+                    <p class="customization-notice">Настройки сохраняются в браузере и пока не публикуются на отдельном сайте магазина. Подключение серверов и получение реального онлайна будут добавлены отдельно.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+    <div class="tool-toast" id="tool-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-image-storage.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./store-tools.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

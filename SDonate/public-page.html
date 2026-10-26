@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090b12">
+    <meta name="description" content="Страница магазина игрового сервера.">
+    <title>Страница магазина</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/public-store.css">
+</head>
+<body>
+    <div class="store-demo-note"><span aria-hidden="true">i</span><p><b>Предпросмотр страницы</b> — данные доступны из демо-хранилища этого браузера.</p></div>
+    <header class="store-header">
+        <a class="store-brand" id="page-store-brand" href="./public-store.html"><span class="store-brand-mark" id="page-brand-mark">S</span><span id="page-store-name">Магазин сервера</span></a>
+        <nav class="store-nav" aria-label="Навигация магазина"><a id="page-home-link" href="./public-store.html">Витрина</a><a href="./public-store.html#products">Товары</a></nav>
+        <a class="cart-open-button page-shop-link" id="page-shop-link" href="./public-store.html">В магазин</a>
+    </header>
+    <main class="public-store-content standalone-page">
+        <a class="standalone-back-link" id="standalone-back-link" href="./public-store.html">← Назад в магазин</a>
+        <article class="standalone-page-card">
+            <p class="section-kicker" id="standalone-page-description">ИНФОРМАЦИЯ</p>
+            <h1 id="standalone-page-title">Страница магазина</h1>
+            <div class="markdown-content standalone-page-content" id="standalone-page-content"></div>
+        </article>
+    </main>
+    <div class="public-store-toast" id="public-store-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./markdown-renderer.js"></script>
+    <script src="./public-page.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

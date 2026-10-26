@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <meta name="description" content="Панель управления SDonate.">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <title>Панель управления — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link active" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link" href="./shops.html"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Аккаунт подключён к серверу.</b> Профиль и магазины хранятся локально в этой вкладке, платежи не подключены.</span><a href="./index.html">На сайт ↗</a></div>
+
+        <div class="page-heading">
+            <div>
+                <p class="eyebrow">ЛИЧНЫЙ КАБИНЕТ</p>
+                <h1>Главная</h1>
+                <p class="welcome">Добрый вечер, <span id="greeting-name">игрок</span>!</p>
+            </div>
+            <div class="heading-meta">
+                <span class="dashboard-mode"><i></i> ДЕМО-ПАНЕЛЬ</span>
+                <time class="date-label" id="current-date"></time>
+            </div>
+        </div>
+        <a class="admin-preview-link" href="./admin.html" id="admin-preview-link" hidden><span aria-hidden="true">⌘</span><span><b>Админ-панель</b><small>Управление аккаунтами сервиса</small></span><span class="admin-preview-arrow" aria-hidden="true">↗</span></a>
+
+        <section class="stats-grid" aria-label="Статистика">
+            <article class="stat-card profit-card" id="finances">
+                <div class="stat-card-head">
+                    <h2><span class="stat-icon">↗</span> Прибыль</h2>
+                    <div class="period-switch" data-chart="profit" aria-label="Период прибыли">
+                        <button class="period-button active" type="button" data-period="day" aria-pressed="true">День</button>
+                        <button class="period-button" type="button" data-period="week" aria-pressed="false">Неделя</button>
+                        <button class="period-button" type="button" data-period="month" aria-pressed="false">Месяц</button>
+                        <button class="period-button" type="button" data-period="all" aria-pressed="false">Всё</button>
+                    </div>
+                </div>
+                <p class="stat-value">0 ₽ <span class="change-badge">— 0%</span></p>
+                <p class="stat-caption" data-caption="profit">за 24 часа</p>
+                <div class="chart" role="img" aria-label="График прибыли: пока нет данных">
+                    <div class="chart-grid"></div>
+                    <svg viewBox="0 0 760 105" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="profitGradient" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0" stop-color="#58c9db" stop-opacity=".35"></stop>
+                                <stop offset="1" stop-color="#58c9db" stop-opacity="0"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path class="chart-area profit-area" d="M0 92 L760 92 L760 105 L0 105Z"></path>
+                        <path class="chart-line profit-line" d="M0 92 L760 92"></path>
+                        <g class="chart-bars profit-bars" aria-hidden="true">
+                            <rect x="35" y="91" width="18" height="1"></rect><rect x="88" y="91" width="18" height="1"></rect><rect x="141" y="91" width="18" height="1"></rect><rect x="194" y="91" width="18" height="1"></rect><rect x="247" y="91" width="18" height="1"></rect><rect x="300" y="91" width="18" height="1"></rect><rect x="353" y="91" width="18" height="1"></rect><rect x="406" y="91" width="18" height="1"></rect><rect x="459" y="91" width="18" height="1"></rect><rect x="512" y="91" width="18" height="1"></rect><rect x="565" y="91" width="18" height="1"></rect><rect x="618" y="91" width="18" height="1"></rect><rect x="671" y="91" width="18" height="1"></rect><rect x="724" y="91" width="18" height="1"></rect>
+                        </g>
+                    </svg>
+                    <div class="chart-labels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:59</span></div>
+                </div>
+            </article>
+
+            <article class="stat-card orders-card">
+                <div class="stat-card-head">
+                    <h2><span class="stat-icon">▣</span> Покупки</h2>
+                    <div class="period-switch" data-chart="orders" aria-label="Период покупок">
+                        <button class="period-button active" type="button" data-period="day" aria-pressed="true">День</button>
+                        <button class="period-button" type="button" data-period="week" aria-pressed="false">Неделя</button>
+                        <button class="period-button" type="button" data-period="month" aria-pressed="false">Месяц</button>
+                        <button class="period-button" type="button" data-period="all" aria-pressed="false">Всё</button>
+                    </div>
+                </div>
+                <p class="stat-value">0 <span class="change-badge">— 0%</span></p>
+                <p class="stat-caption" data-caption="orders">за 24 часа</p>
+                <div class="chart" role="img" aria-label="График покупок: пока нет данных">
+                    <div class="chart-grid"></div>
+                    <svg viewBox="0 0 760 105" preserveAspectRatio="none" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="ordersGradient" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0" stop-color="#a777ff" stop-opacity=".35"></stop>
+                                <stop offset="1" stop-color="#a777ff" stop-opacity="0"></stop>
+                            </linearGradient>
+                        </defs>
+                        <path class="chart-area orders-area" d="M0 92 L760 92 L760 105 L0 105Z"></path>
+                        <path class="chart-line orders-line" d="M0 92 L760 92"></path>
+                        <g class="chart-bars orders-bars" aria-hidden="true">
+                            <rect x="35" y="91" width="18" height="1"></rect><rect x="88" y="91" width="18" height="1"></rect><rect x="141" y="91" width="18" height="1"></rect><rect x="194" y="91" width="18" height="1"></rect><rect x="247" y="91" width="18" height="1"></rect><rect x="300" y="91" width="18" height="1"></rect><rect x="353" y="91" width="18" height="1"></rect><rect x="406" y="91" width="18" height="1"></rect><rect x="459" y="91" width="18" height="1"></rect><rect x="512" y="91" width="18" height="1"></rect><rect x="565" y="91" width="18" height="1"></rect><rect x="618" y="91" width="18" height="1"></rect><rect x="671" y="91" width="18" height="1"></rect><rect x="724" y="91" width="18" height="1"></rect>
+                        </g>
+                    </svg>
+                    <div class="chart-labels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:59</span></div>
+                </div>
+            </article>
+        </section>
+
+        <section class="empty-state" id="shops">
+            <span class="empty-icon">◇</span>
+            <div><h2>Твой магазин</h2><p>Открой список магазинов, чтобы посмотреть свой демо-магазин или создать новый.</p></div>
+            <a class="create-button" href="./shops.html">Мои магазины <span aria-hidden="true">↗</span></a>
+        </section>
+
+        <section class="empty-state settings-state" id="settings">
+            <span class="empty-icon">⚙</span>
+            <div><h2>Настройки аккаунта</h2><p>Управляй демо-профилем и настройками панели.</p></div>
+            <a class="settings-link" href="./settings.html">Открыть настройки <span aria-hidden="true">↗</span></a>
+        </section>
+    </main>
+    <script src="./auth-session.js"></script>
+    <script src="./dashboard.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

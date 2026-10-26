@@ -1,0 +1,80 @@
+cd "C:\Users\mihai\OneDrive\Desktop\SDonate"
+.\start-sdonate.ps1<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Создание демо-магазина SDonate.">
+    <title>Создание магазина — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/shop-create.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html" aria-current="page"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content create-shop-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Демо-режим</b> — магазин сохранится только в этой вкладке. Поддомен и выдача пока не активируются.</span><a href="./shops.html">К магазинам ↗</a></div>
+
+        <section class="create-shop-panel">
+            <a class="back-button" href="./shops.html" aria-label="Назад к магазинам">←</a>
+            <h1>Создание магазина</h1>
+            <p class="create-shop-description">Укажи название магазина, выбери поддомен и способ выдачи, чтобы создать демо-магазин.</p>
+
+            <form id="create-shop-form" novalidate>
+                <label class="create-field" for="shop-name">
+                    <span>Название</span>
+                    <input id="shop-name" name="name" type="text" placeholder="Введите название" minlength="2" maxlength="40" autocomplete="organization" required>
+                </label>
+
+                <label class="create-field" for="shop-subdomain">
+                    <span>Выбор поддомена</span>
+                    <span class="subdomain-control">
+                        <input id="shop-subdomain" name="subdomain" type="text" placeholder="Поддомен" minlength="3" maxlength="30" pattern="[a-z0-9]+(-[a-z0-9]+)*" autocomplete="off" required>
+                        <span>.sdonate.store</span>
+                    </span>
+                    <small>Используй латинские буквы, цифры и дефис.</small>
+                </label>
+
+                <label class="create-field" for="payout-method">
+                    <span>Способ выдачи</span>
+                    <select id="payout-method" name="payoutMethod" required>
+                        <option value="RCON">RCON</option>
+                        <option value="Webhook">Webhook</option>
+                        <option value="Вручную">Вручную</option>
+                    </select>
+                </label>
+
+                <p class="form-message" id="form-message" role="status" hidden></p>
+                <button class="create-submit" type="submit">Создать</button>
+            </form>
+        </section>
+    </main>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./shop-create.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

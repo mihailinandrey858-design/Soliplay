@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Панель управления демо-магазином SDonate.">
+    <title>Панель магазина — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/shop-dashboard.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html" aria-current="page"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content store-dashboard">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Демо-панель магазина</b> — статистика и инструменты пока не подключены к серверу.</span><a class="demo-back-link" href="./shops.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7"></path></svg><span>К магазинам</span></a></div>
+
+        <section class="store-heading">
+            <div class="store-heading-main">
+                <div class="store-status-line"><span class="status-dot"></span> АКТИВЕН · ДЕМО</div>
+                <div class="store-title-row">
+                    <h1 id="shop-name">Магазин</h1>
+                    <button class="rename-store" id="rename-store" type="button" aria-label="Настроить магазин">⚙</button>
+                </div>
+                <p class="store-address" id="shop-address">Поддомен не указан</p>
+            </div>
+            <div class="store-mode">
+                <a class="storefront-preview-button" id="storefront-preview-button" href="./public-store.html">Открыть витрину <span aria-hidden="true">↗</span></a>
+                <span>Тестовый режим</span>
+                <span class="mode-badge">Включён <i></i></span>
+            </div>
+        </section>
+
+        <section class="plugin-token-card" aria-label="Токен плагина">
+            <span class="token-key-icon" aria-hidden="true">⚿</span>
+            <span class="token-value" id="plugin-token" aria-live="polite">Токен загружается…</span>
+            <span class="token-demo-badge">ДЕМО</span>
+            <button class="token-action" id="toggle-token" type="button" aria-label="Показать токен" aria-pressed="false">◉</button>
+            <button class="token-action" id="copy-token" type="button" aria-label="Скопировать токен">⧉</button>
+            <button class="token-action" id="regenerate-token" type="button" aria-label="Создать новый токен">↻</button>
+        </section>
+
+        <div class="section-heading">
+            <h2><span class="section-icon cyan-icon">⌁</span>Статистика</h2>
+            <span class="period-note">ПОСЛЕДНИЕ 24 ЧАСА</span>
+        </div>
+
+        <section class="store-stats" aria-label="Статистика магазина">
+            <article class="store-stat-card cyan-card">
+                <h3><span class="metric-icon">↗</span>Прибыль</h3>
+                <p class="store-stat-value">0 ₽</p>
+                <p class="store-stat-caption">за сегодня</p>
+                <div class="stat-flat-line" aria-hidden="true"></div>
+            </article>
+            <article class="store-stat-card purple-card">
+                <h3><span class="metric-icon">▣</span>Покупки</h3>
+                <p class="store-stat-value">0</p>
+                <p class="store-stat-caption">за сегодня</p>
+                <div class="stat-flat-line" aria-hidden="true"></div>
+            </article>
+            <article class="store-stat-card green-card">
+                <h3><span class="metric-icon">▤</span>Средний чек</h3>
+                <p class="store-stat-value">0 ₽</p>
+                <p class="store-stat-caption">за сегодня</p>
+                <div class="stat-flat-line" aria-hidden="true"></div>
+            </article>
+        </section>
+
+        <section class="store-secondary-grid">
+            <article class="visits-card">
+                <h3><span class="metric-icon green-icon">♧</span>Посещения</h3>
+                <p class="store-stat-value">0</p>
+                <p class="store-stat-caption">уникальных за сегодня</p>
+                <div class="visits-chart" role="img" aria-label="График посещений: пока нет данных">
+                    <svg viewBox="0 0 760 86" preserveAspectRatio="none" aria-hidden="true">
+                        <path class="visit-area" d="M0 67 C100 67 100 67 180 67 S280 67 380 67 S500 67 580 67 S680 67 760 67 L760 86 L0 86Z"></path>
+                        <path class="visit-line" d="M0 67 C100 67 100 67 180 67 S280 67 380 67 S500 67 580 67 S680 67 760 67"></path>
+                    </svg>
+                </div>
+            </article>
+            <article class="recent-orders-card">
+                <div class="recent-orders-heading">
+                    <div>
+                        <h3>Последние покупки</h3>
+                        <p>О покупках за последние 7 дней</p>
+                    </div>
+                    <a href="#management" class="view-orders">Все покупки <span>→</span></a>
+                </div>
+                <div class="no-orders"><span>▣</span><p>Покупок пока нет</p></div>
+            </article>
+        </section>
+
+        <section class="management-section" id="management">
+            <div class="section-heading">
+                <h2><span class="section-icon purple-icon">⚙</span>Управление</h2>
+            </div>
+            <div class="management-grid">
+                <button class="management-card" type="button" data-tool="Настройки">
+                    <span class="management-icon">⚙</span><span class="management-copy"><b>Настройки</b><small>Настройте финансовые условия, описание, внешний вид магазина и другие параметры</small></span><span class="management-arrow">›</span>
+                </button>
+                <button class="management-card" type="button" data-tool="API-интеграции">
+                    <span class="management-icon">▣</span><span class="management-copy"><b>API-интеграции</b><small>Подключите магазин к серверу и настройте автоматическую обработку заказов</small></span><span class="new-label">NEW</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Серверы">
+                    <span class="management-icon">▤</span><span class="management-copy"><b>Серверы</b><small>Управляйте игровыми серверами и подключениями магазина</small></span><span class="management-arrow">›</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Товары">
+                    <span class="management-icon">♜</span><span class="management-copy"><b>Товары</b><small>Управляйте товарами в магазине, редактируйте и добавляйте новые продукты</small></span><span class="new-label">NEW</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Купоны">
+                    <span class="management-icon">▧</span><span class="management-copy"><b>Купоны</b><small>Настраивайте скидки и создавайте промокоды для покупателей</small></span><span class="management-arrow">›</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Партнёры">
+                    <span class="management-icon">♡</span><span class="management-copy"><b>Партнёры</b><small>Развивайте сообщество магазина и делитесь ссылкой с аудиторией</small></span><span class="management-arrow">›</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Массовые ожидания">
+                    <span class="management-icon">◷</span><span class="management-copy"><b>Массовые ожидания</b><small>Управляйте отложенными действиями для ваших товаров и покупателей</small></span><span class="management-arrow">›</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Подборки">
+                    <span class="management-icon">♧</span><span class="management-copy"><b>Подборки</b><small>Объединяйте товары и создавайте группы в магазине</small></span><span class="management-arrow">›</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Страницы">
+                    <span class="management-icon">▤</span><span class="management-copy"><b>Страницы</b><small>Добавляйте страницы с описанием сервера и полезной информацией</small></span><span class="new-label">NEW</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Аналитика">
+                    <span class="management-icon">⌁</span><span class="management-copy"><b>Аналитика</b><small>Подробная статистика посещений, оборота и продаж магазина</small></span><span class="new-label">NEW</span>
+                </button>
+                <button class="management-card" type="button" data-tool="Плагины">
+                    <span class="management-icon">◇</span><span class="management-copy"><b>Плагины</b><small>Управляйте подключениями и расширяйте возможности магазина</small></span><span class="new-label">NEW</span>
+                </button>
+                <button class="management-card danger-card" id="delete-shop" type="button">
+                    <span class="management-icon">×</span><span class="management-copy"><b>Удалить магазин</b><small>Удалить этот демо-магазин из списка магазинов</small></span><span class="management-arrow">›</span>
+                </button>
+            </div>
+        </section>
+    </main>
+    <div class="store-toast" id="store-toast" role="status" aria-live="polite" hidden></div>
+
+    <dialog class="store-delete-dialog" id="store-delete-dialog">
+        <span class="delete-dialog-icon">!</span>
+        <h2>Удалить магазин?</h2>
+        <p>Магазин «<b id="confirm-shop-name"></b>» будет удалён из демо-списка. Это действие нельзя отменить.</p>
+        <div class="store-delete-actions">
+            <button class="cancel-delete" id="cancel-delete" type="button">Отмена</button>
+            <button class="confirm-delete" id="confirm-delete" type="button">Удалить</button>
+        </div>
+    </dialog>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./shop-dashboard.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

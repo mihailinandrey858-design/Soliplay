@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090a13">
+    <meta name="description" content="SDonate — удобная платформа для создания магазина Minecraft-сервера, управления товарами и автоматизации выдачи покупок.">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <title>SDonate — магазин и донат для Minecraft-сервера</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+            <a href="#top" class="logo-box" aria-label="SDonate — на главную">
+                <img src="./img/Серебристый куб с эмблемой SD.png" alt="" class="logo-img">
+                <span class="logo-title">SDonate</span>
+            </a>
+
+            <nav class="nav-links" aria-label="Основная навигация">
+                <a href="#features" class="nav-link" data-i18n="navFeatures">Возможности</a>
+                <a href="#how-it-works" class="nav-link" data-i18n="navHow">Как работает</a>
+                <a href="#faq" class="nav-link" data-i18n="navFaq">Вопросы</a>
+            </nav>
+
+            <div class="panel">
+                <div class="lang-switch" aria-label="Language">
+                    <button class="lang-btn active" type="button" data-lang="ru" aria-label="Русский">RU</button>
+                    <button class="lang-btn" type="button" data-lang="en" aria-label="English">EN</button>
+                </div>
+                <a href="./reg.html?mode=login" class="login-link" data-i18n="login">Войти</a>
+                <a href="./reg.html" class="create-shop-btn"><span data-i18n="createShop">Создать магазин</span><span aria-hidden="true">↗</span></a>
+            </div>
+        </div>
+    </header>
+
+    <main id="top">
+        <section class="hero">
+            <div class="hero-glow"></div>
+            <div class="hero-content">
+                <div class="hero-label"><span class="status-dot"></span><span data-i18n="platform">Платформа для Minecraft-серверов</span></div>
+                <h1 data-i18n-html="title">Твой сервер.<br><span>Твой магазин.</span></h1>
+                <p class="hero-description" data-i18n="description">Запусти магазин сервера без лишней настройки. Привилегии, наборы и автоматическая выдача покупок — в одном месте.</p>
+                <div class="hero-actions">
+                    <a href="./reg.html" class="hero-button"><span data-i18n="createShop">Создать магазин</span><span aria-hidden="true">↗</span></a>
+                    <a href="#how-it-works" class="text-button"><span data-i18n="seeHow">Посмотреть, как это работает</span><span aria-hidden="true">↓</span></a>
+                </div>
+                <div class="hero-features" id="advantages">
+                    <div class="feature"><span class="feature-icon">◇</span><span data-i18n="featureSecure">Интеграция платежей</span></div>
+                    <div class="feature"><span class="feature-icon">◷</span><span data-i18n="featureSupport">Поддержка 24/7</span></div>
+                    <div class="feature"><span class="feature-icon">ϟ</span><span data-i18n="featureAuto">Автоматическая выдача</span></div>
+                </div>
+            </div>
+
+            <div class="dashboard-wrap" aria-label="Демонстрация панели SDonate">
+                <div class="dashboard">
+                    <aside class="dash-sidebar">
+                        <div class="dash-brand"><img class="dash-brand-mark" src="./img/Серебристый куб с эмблемой SD.png" alt=""><span>SDonate</span></div>
+                        <div class="dash-server"><span class="server-cube">◆</span><span><b>BlockWorld</b><small>play.blockworld.ru</small></span><span class="dash-chevron">⌄</span></div>
+                        <div class="dash-menu-label" data-i18n="dashMenu">МЕНЮ</div>
+                        <div class="dash-menu-item active"><span>▦</span><span data-i18n="dashOverview">Обзор</span></div>
+                        <div class="dash-menu-item"><span>◇</span><span data-i18n="dashProducts">Товары</span></div>
+                        <div class="dash-menu-item"><span>◷</span><span data-i18n="dashOrders">Заказы</span></div>
+                        <div class="dash-menu-item"><span>⚙</span><span data-i18n="dashSettings">Настройки</span></div>
+                        <div class="dash-profile"><span class="profile-avatar">B</span><span><b>BlockWorld</b><small data-i18n="dashOwner">Владелец</small></span><span class="dash-chevron">···</span></div>
+                    </aside>
+                    <div class="dash-main">
+                        <div class="dash-top"><span data-i18n="dashWelcome">С возвращением, BlockWorld</span><span class="dash-date"><i></i><span data-i18n="dashLive">Магазин активен</span></span></div>
+                        <div class="dash-heading"><div><small data-i18n="dashToday">ВАША СТАТИСТИКА</small><h2 data-i18n="dashTitle">Обзор магазина</h2></div><span class="dash-period" data-i18n="dashPeriod">Последние 7 дней⌄</span></div>
+                        <div class="dash-stats">
+                            <div class="dash-stat"><span data-i18n="dashRevenue">Выручка</span><b>24 850 ₽</b><small class="stat-up">↗ 18.6% <em data-i18n="dashCompare">к прошлой неделе</em></small></div>
+                            <div class="dash-stat"><span data-i18n="dashOrdersCount">Заказы</span><b>126</b><small class="stat-up">↗ 12.3% <em data-i18n="dashCompare">к прошлой неделе</em></small></div>
+                            <div class="dash-stat"><span data-i18n="dashAverage">Средний чек</span><b>197 ₽</b><small class="stat-neutral" data-i18n="dashAverageHint">за этот период</small></div>
+                        </div>
+                        <div class="dash-chart-card">
+                            <div class="chart-head"><b data-i18n="dashChartTitle">Динамика продаж</b><span data-i18n="dashChartHint">Выручка за неделю</span></div>
+                            <div class="chart"><div class="chart-y"><span>8k</span><span>6k</span><span>4k</span><span>2k</span><span>0</span></div><div class="chart-plot"><div class="chart-grid"></div><svg viewBox="0 0 520 120" preserveAspectRatio="none" role="img" aria-label="График продаж за неделю"><defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c8cad3" stop-opacity=".23"/><stop offset="1" stop-color="#c8cad3" stop-opacity="0"/></linearGradient></defs><path class="chart-area" d="M0 94 C32 87 38 95 74 76 S122 82 150 64 S198 78 224 51 S274 62 300 43 S348 58 375 33 S421 49 448 24 S490 32 520 10 L520 120 L0 120Z"/><path class="chart-line" d="M0 94 C32 87 38 95 74 76 S122 82 150 64 S198 78 224 51 S274 62 300 43 S348 58 375 33 S421 49 448 24 S490 32 520 10"/></svg><div class="chart-days"><span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span></div></div></div>
+                        </div>
+                        <div class="dash-bottom"><span data-i18n="dashRecent">Последние заказы</span><span class="dash-more" data-i18n="dashAll">Все заказы ↗</span></div>
+                        <div class="dash-order"><span class="order-avatar">S</span><span><b>Steve_Mine</b><small>VIP на 30 дней</small></span><strong>+299 ₽</strong><i data-i18n="dashPaid">Оплачено</i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-bottom-note"><span>01</span><span data-i18n="heroNote">ИНСТРУМЕНТЫ ДЛЯ РОСТА ТВОЕГО СЕРВЕРА</span><span class="note-line"></span></div>
+        </section>
+
+        <section class="trust-strip" aria-label="Возможности платформы">
+            <span data-i18n="trustTitle">ВСЁ НУЖНОЕ ДЛЯ ТВОЕГО МАГАЗИНА</span>
+            <div><b>01</b><span data-i18n="trustOne">Витрина товаров</span></div>
+            <div><b>02</b><span data-i18n="trustTwo">Управление заказами</span></div>
+            <div><b>03</b><span data-i18n="trustThree">Автовыдача покупок</span></div>
+        </section>
+
+        <section class="features-section section-shell" id="features">
+            <div class="section-heading">
+                <div><p class="section-label" data-i18n="featuresLabel">ВСЁ ПОД КОНТРОЛЕМ</p><h2 data-i18n-html="featuresTitle">Больше времени<br>на <span>саму игру</span></h2></div>
+                <p class="section-intro" data-i18n="featuresIntro">SDonate помогает настроить продажи и освободить время для развития сервера и игрового сообщества.</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card feature-card-large"><div class="card-icon">ϟ</div><div class="card-art art-delivery"><span class="art-command">/lp user Steve parent set VIP</span><span class="art-status"><i></i><span data-i18n="artDelivered">Команда выполнена</span></span><span class="art-check">✓</span></div><h3 data-i18n="cardAutoTitle">Автовыдача товаров</h3><p data-i18n="cardAutoText">После подтверждения заказа нужные команды отправляются на сервер автоматически.</p></article>
+                <article class="feature-card"><div class="card-icon">▦</div><div class="card-art art-catalog"><span class="catalog-item"><i>✦</i><b>VIP</b><small>на 30 дней</small><strong>299 ₽</strong></span><span class="catalog-item selected"><i>✧</i><b>PREMIUM</b><small>на 30 дней</small><strong>599 ₽</strong></span></div><h3 data-i18n="cardStoreTitle">Витрина под твой сервер</h3><p data-i18n="cardStoreText">Собери каталог привилегий и наборов, задай цены и оформи страницу в стиле сервера.</p></article>
+                <article class="feature-card"><div class="card-icon">◷</div><div class="card-art art-orders"><span><i class="order-dot"></i><b>Steve_Mine</b><small>VIP · 299 ₽</small><em data-i18n="orderDone">Готово</em></span><span><i class="order-dot muted"></i><b>AlexCraft</b><small>Набор · 149 ₽</small><em data-i18n="orderWait">В обработке</em></span><span><i class="order-dot"></i><b>CraftFox</b><small>Premium · 599 ₽</small><em data-i18n="orderDone">Готово</em></span></div><h3 data-i18n="cardOrdersTitle">Заказы без хаоса</h3><p data-i18n="cardOrdersText">История покупок и статусы в одной панели. Быстро находи нужный заказ.</p></article>
+            </div>
+        </section>
+
+        <section class="how-it-works" id="how-it-works">
+            <div class="section-inner">
+                <p class="section-label" data-i18n="howLabel">ПРОСТО НАЧАТЬ</p>
+                <h2 data-i18n="howTitle">От идеи до магазина — три шага</h2>
+                <p class="section-text" data-i18n="howDescription">Никаких сложных настроек. Начни с базового магазина и развивай его вместе с сервером.</p>
+                <div class="steps">
+                    <article class="step-card"><span class="step-number">01</span><h3 data-i18n="step1Title">Создай магазин</h3><p data-i18n="step1Text">Задай название и адрес своего сервера — основа магазина готова.</p><div class="mock"><div class="mock-input"><span data-i18n="serverName">Название сервера</span><b>BlockWorld</b></div><div class="mock-progress"><i></i></div></div></article>
+                    <article class="step-card"><span class="step-number">02</span><h3 data-i18n="step2Title">Добавь товары</h3><p data-i18n="step2Text">Создай привилегии, наборы или предметы, укажи цены и команды.</p><div class="mock"><div class="mock-row"><span>VIP · 30 дней</span><b>299 ₽</b></div><div class="mock-row"><span>Premium · 30 дней</span><b>599 ₽</b></div></div></article>
+                    <article class="step-card"><span class="step-number">03</span><h3 data-i18n="step3Title">Поделись ссылкой</h3><p data-i18n="step3Text">Игроки выбирают товары в магазине, а ты управляешь заказами из панели.</p><div class="mock"><div class="mock-row income"><span>+299 ₽</span><em data-i18n="from1">от Steve_Mine</em><b class="mock-check">✓</b></div><div class="mock-row income"><span>+599 ₽</span><em data-i18n="from2">от AlexCraft</em><b class="mock-check">✓</b></div></div></article>
+                </div>
+                <a href="./reg.html" class="hero-button how-button"><span data-i18n="startNow">Начать сейчас</span><span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+
+        <section class="faq-section section-shell" id="faq">
+            <div class="section-heading faq-heading"><div><p class="section-label" data-i18n="faqLabel">ЕСТЬ ВОПРОСЫ?</p><h2 data-i18n-html="faqTitle">Разберёмся<br><span>в деталях</span></h2></div><p class="section-intro" data-i18n="faqIntro">Коротко ответили на то, что чаще всего спрашивают перед запуском.</p></div>
+            <div class="faq-list">
+                <details class="faq-item"><summary data-i18n="faq1Question">Что такое SDonate?</summary><p data-i18n="faq1Answer">Это платформа для создания и управления магазином Minecraft-сервера. Здесь можно оформить товары и следить за заказами.</p></details>
+                <details class="faq-item"><summary data-i18n="faq2Question">Нужен ли собственный сайт?</summary><p data-i18n="faq2Answer">Нет. Магазин получает отдельную страницу, ссылку на которую можно разместить в описании сервера и сообщества.</p></details>
+                <details class="faq-item"><summary data-i18n="faq3Question">Как работает автоматическая выдача?</summary><p data-i18n="faq3Answer">Для товара задаются команды, которые должны выполняться на сервере. Для реального запуска потребуется подключить сервер и настроить интеграцию.</p></details>
+                <details class="faq-item"><summary data-i18n="faq4Question">Можно ли принимать реальные платежи?</summary><p data-i18n="faq4Answer">Эта страница — интерфейсная демонстрация. Приём денег, аккаунты и выдача товаров не подключены: для запуска понадобится backend и договор с платёжным провайдером.</p></details>
+            </div>
+        </section>
+
+        <section class="start-section" id="get-started">
+            <div class="start-inner"><div><p class="section-label" data-i18n="startLabel">ТВОЙ СЛЕДУЮЩИЙ ШАГ</p><h2 data-i18n-html="startTitle">Готов запустить<br><span>магазин сервера?</span></h2><p data-i18n="startText">Начни с простого — настрой витрину и подготовь магазин к запуску.</p></div><a href="./reg.html" class="hero-button start-button"><span data-i18n="contactUs">Создать аккаунт</span><span aria-hidden="true">↗</span></a></div>
+            <div class="start-decoration" aria-hidden="true">SD</div>
+        </section>
+    </main>
+
+    <footer class="footer" id="support">
+        <div class="footer-main"><a href="#top" class="logo-box"><img src="./img/Серебристый куб с эмблемой SD.png" alt="" class="logo-img"><span class="logo-title">SDonate</span></a><p data-i18n="footerText">Инструменты для развития Minecraft-сообществ.</p><a href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer" data-i18n="support">Поддержка</a></div>
+        <div class="footer-bottom"><span data-i18n="copyright">© 2026 SDonate. Все права защищены.</span><span data-i18n="demoNote">Демонстрационный интерфейс · Платежи не подключены</span></div>
+    </footer>
+
+    <script src="./mine.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>

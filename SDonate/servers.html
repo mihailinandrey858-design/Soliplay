@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080910">
+    <link rel="icon" type="image/png" href="./img/Серебристый куб с эмблемой SD.png">
+    <meta name="description" content="Управление игровыми серверами магазина SDonate.">
+    <title>Серверы — SDonate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <link rel="stylesheet" href="./css/servers.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="./index.html">
+            <img src="./img/Серебристый куб с эмблемой SD.png" alt="">
+            <span>SDonate</span>
+        </a>
+        <nav class="main-nav" aria-label="Главная навигация">
+            <a class="nav-link" href="./dashboard.html"><img class="nav-icon" src="./img/house.png" alt="">Главная</a>
+            <a class="nav-link" href="./finance.html"><img class="nav-icon" src="./img/hand-coins.png" alt="">Финансы</a>
+            <a class="nav-link active" href="./shops.html" aria-current="page"><img class="nav-icon" src="./img/shopping-basket.png" alt="">Магазины</a>
+            <a class="nav-link" href="./settings.html"><img class="nav-icon" src="./img/bolt.png" alt="">Настройки</a>
+        </nav>
+        <div class="top-actions">
+            <a class="help-link" href="https://t.me/Sdonat1" target="_blank" rel="noopener noreferrer"><img class="nav-icon" src="./img/message-square-more.png" alt=""> Помощь</a>
+            <div class="account-menu">
+                <span class="account-avatar" id="account-avatar">S</span>
+                <span class="account-name"><b id="account-name">Игрок</b><small>Аккаунт</small></span>
+                <button class="logout-button" id="logout-button" type="button">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-content servers-content">
+        <div class="demo-banner"><span class="demo-mark">i</span><span><b>Настройки в демо-режиме</b> — серверы сохраняются в этой вкладке. Подключение и выдача команд пока не активны.</span><a class="demo-back-link" id="back-to-shop" href="./store-tools.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m0 0 7-7m-7 7 7 7"></path></svg><span>К плагинам</span></a></div>
+
+        <section class="servers-heading">
+            <div>
+                <p class="eyebrow">МАГАЗИН <span>/</span> ИГРОВЫЕ СЕРВЕРЫ</p>
+                <h1><span id="servers-shop-name">Магазин</span> — серверы</h1>
+                <p>Добавляй несколько серверов и указывай их игровые адреса.</p>
+            </div>
+            <button class="servers-add-button" id="add-server" type="button"><span aria-hidden="true">＋</span> Добавить сервер</button>
+        </section>
+
+        <div class="servers-layout">
+            <section class="server-list-panel">
+                <div class="servers-list-heading">
+                    <div><span class="servers-section-icon" aria-hidden="true">▣</span><h2>Серверы магазина</h2></div>
+                    <span class="server-count"><b id="server-count">0</b> СЕРВЕРОВ</span>
+                </div>
+                <div class="server-list" id="server-list" aria-live="polite"></div>
+                <div class="servers-empty" id="servers-empty">
+                    <span aria-hidden="true">⌁</span>
+                    <h3>Серверов пока нет</h3>
+                    <p>Добавь первый сервер, чтобы настроить его адрес и версию.</p>
+                    <button class="servers-add-button empty-add-button" id="empty-add-server" type="button">＋ Добавить сервер</button>
+                </div>
+            </section>
+
+            <section class="server-form-panel" id="server-form-panel">
+                <div class="server-form-heading">
+                    <span class="servers-section-icon" aria-hidden="true">⚙</span>
+                    <div><h2 id="form-title">Новый сервер</h2><p>Настрой игровые параметры сервера</p></div>
+                </div>
+                <form id="server-form">
+                    <input id="server-id" name="id" type="hidden">
+                    <div class="server-fields-grid">
+                        <label class="server-field" for="server-name">
+                            <span>Название сервера <i>*</i></span>
+                            <input id="server-name" name="name" type="text" placeholder="Например, Гриферский" minlength="2" maxlength="48" required>
+                        </label>
+                        <label class="server-field" for="server-version">
+                            <span>Версия</span>
+                            <input id="server-version" name="version" type="text" placeholder="Например, 1.21+" maxlength="24">
+                        </label>
+                        <label class="server-field" for="server-address">
+                            <span>IP-адрес <i>*</i></span>
+                            <input id="server-address" name="address" type="text" placeholder="play.example.net" maxlength="253" autocomplete="off" required>
+                        </label>
+                        <label class="server-field" for="server-port">
+                            <span>Порт <i>*</i></span>
+                            <input id="server-port" name="port" type="number" min="1" max="65535" value="25565" required>
+                        </label>
+                    </div>
+
+                    <div class="server-form-divider"></div>
+                    <div class="server-subheading"><b>RCON</b><span>Для удалённого управления</span></div>
+                    <div class="server-fields-grid">
+                        <label class="server-field" for="rcon-address">
+                            <span>RCON-адрес</span>
+                            <input id="rcon-address" name="rconAddress" type="text" placeholder="127.0.0.1" maxlength="253" autocomplete="off">
+                        </label>
+                        <label class="server-field" for="rcon-port">
+                            <span>RCON-порт</span>
+                            <input id="rcon-port" name="rconPort" type="number" min="1" max="65535" placeholder="25575">
+                        </label>
+                    </div>
+                    <div class="rcon-notice" role="note">
+                        <span aria-hidden="true">!</span>
+                        <p><b>Не вводи RCON-пароль в демо-режиме.</b> Настоящее подключение ещё не настроено. Пароль нельзя безопасно хранить в браузере; он должен передаваться только серверу SDonate по защищённому соединению.</p>
+                    </div>
+
+                    <label class="online-option" for="exclude-online">
+                        <input id="exclude-online" name="excludeOnline" type="checkbox">
+                        <span class="online-switch" aria-hidden="true"></span>
+                        <span><b>Не учитывать в онлайне</b><small>Онлайн этого сервера не попадёт в общий счётчик витрины</small></span>
+                    </label>
+                    <p class="server-form-message" id="server-form-message" role="status" hidden></p>
+                    <div class="server-form-actions">
+                        <button class="server-cancel-button" id="cancel-edit" type="button" hidden>Отмена</button>
+                        <button class="server-save-button" type="submit">Сохранить сервер</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <div class="servers-toast" id="servers-toast" role="status" aria-live="polite" hidden></div>
+    <script src="./auth-session.js"></script>
+    <script src="./demo-shop-storage.js"></script>
+    <script src="./servers.js"></script>
+    <script src="./telegram-promo.js"></script>
+</body>
+</html>
